@@ -218,7 +218,46 @@
 
 <!-- White Space Section -->
 <section class="py-32 bg-white">
-  <div class="max-w-7xl mx-auto px-4"></div>
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Block 1 -->
+      <div class="bg-[#1c1c1c] p-12 rounded-3xl">
+        <h2 class="text-3xl font-bold text-white mb-6">
+          Algorithmic Stability
+        </h2>
+        <p class="text-gray-300 text-lg mb-8">
+          DoxaV3 implements advanced algorithmic mechanisms to maintain price
+          stability. Our smart contracts automatically adjust supply based on
+          market demand, ensuring a reliable 1:1 peg with USD without requiring
+          collateral.
+        </p>
+        <a
+          href="/mechanism"
+          class="inline-block px-6 py-3 border border-white/20 text-white rounded-full hover:bg-white/10 transition-all"
+        >
+          LEARN HOW IT WORKS
+        </a>
+      </div>
+
+      <!-- Block 2 -->
+      <div class="bg-[#1c1c1c] p-12 rounded-3xl">
+        <h2 class="text-3xl font-bold text-white mb-6">
+          Integration & Development
+        </h2>
+        <p class="text-gray-300 text-lg mb-8">
+          Built on Internet Computer, DoxaV3 offers seamless integration with
+          DeFi protocols. Our SDK and APIs make it easy to integrate stablecoin
+          functionality into your dapps with minimal overhead.
+        </p>
+        <a
+          href="/developers"
+          class="inline-block px-6 py-3 border border-white/20 text-white rounded-full hover:bg-white/10 transition-all"
+        >
+          START BUILDING
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Email Signup -->
