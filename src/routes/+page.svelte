@@ -64,15 +64,37 @@
           </a>
         </div>
       </div>
-      <div class="relative">
+      <div class="grid grid-cols-2 gap-4">
         <div
-          class="absolute inset-0 bg-gradient-to-r from-[#8247E5]/30 to-[#8247E5]/10 rounded-3xl blur-2xl"
-        ></div>
-        <img
-          src="/svelte-welcome.png"
-          alt="DoxaV3 Stablecoin"
-          class="relative w-full rounded-3xl shadow-2xl"
-        />
+          class="bg-gradient-to-br from-[#1E0447] to-[#3B0764] p-6 rounded-2xl"
+        >
+          <p class="text-gray-300 text-sm mb-1">Total Value Locked</p>
+          <p class="text-white text-2xl font-bold flex items-center">
+            $4.8M
+            <span class="text-green-400 text-sm ml-2">↑ 12.5%</span>
+          </p>
+        </div>
+        <div
+          class="bg-gradient-to-br from-[#1E0447] to-[#3B0764] p-6 rounded-2xl"
+        >
+          <p class="text-gray-300 text-sm mb-1">APY</p>
+          <p class="text-white text-2xl font-bold flex items-center">
+            8.2%
+            <span class="text-green-400 text-sm ml-2">↑ 0.5%</span>
+          </p>
+        </div>
+        <div
+          class="bg-gradient-to-br from-[#1E0447] to-[#3B0764] p-6 rounded-2xl"
+        >
+          <p class="text-gray-300 text-sm mb-1">Weekly Rewards</p>
+          <p class="text-white text-2xl font-bold">125,000 DOXA</p>
+        </div>
+        <div
+          class="bg-gradient-to-br from-[#1E0447] to-[#3B0764] p-6 rounded-2xl"
+        >
+          <p class="text-gray-300 text-sm mb-1">Total Fees Collected</p>
+          <p class="text-white text-2xl font-bold">$283.5K</p>
+        </div>
       </div>
     </div>
   </div>
