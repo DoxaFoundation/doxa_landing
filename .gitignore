@@ -7,17 +7,52 @@ node_modules
 .wrangler
 /.svelte-kit
 /build
+/dist
+/out
 
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
+*.lnk
+.Trashes
 
 # Env
 .env
 .env.*
 !.env.example
 !.env.test
+.env.local
 
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+.vite
+.cache
+
+# Editors/IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+debug
+
+# Testing
+/coverage
+.nyc_output
+
+# Dependencies
+jspm_packages/
+
+# DFINITY
+.dfx
+canister_ids.json
+.dfx/local
+
+# Temp files
+*.tmp
+*.temp

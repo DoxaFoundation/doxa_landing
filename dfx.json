@@ -1,0 +1,21 @@
+{
+    "canisters": {
+        "doxa_landing_frontend": {
+            "frontend": {
+                "entrypoint": "build/index.html"
+            },
+            "source": [
+                "build/"
+            ],
+            "type": "assets"
+        }
+    },
+    "defaults": {
+        "build": {
+            "args": "",
+            "packtool": ""
+        }
+    },
+    "output_env_file": ".env",
+    "version": 1
+}
