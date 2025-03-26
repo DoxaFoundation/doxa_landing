@@ -354,6 +354,71 @@
   </div>
 </section>
 
+<!-- DoxaV3 Fusion Section -->
+<section class="relative overflow-hidden rounded-[48px] mx-8 mb-32">
+  <!-- Background with animated lines -->
+  <div class="absolute inset-0 bg-[#1E0447]">
+    {#each Array(20) as _, i}
+      <div
+        class="absolute h-1 opacity-50"
+        style="
+          background: linear-gradient(90deg, {['#FF4D4D', '#4DA6FF', '#4DFFB7'][
+          i % 3
+        ]}, transparent);
+          width: {50 + Math.random() * 150}px;
+          left: {Math.random() * 100}%;
+          top: {Math.random() * 100}%;
+          transform: rotate({Math.random() * 360}deg);
+          animation: shooting {2 + Math.random() * 3}s linear infinite;
+        "
+      />
+    {/each}
+  </div>
+
+  <div
+    class="relative p-16 flex flex-col md:flex-row items-center justify-between"
+  >
+    <!-- Left Content -->
+    <div class="w-full md:w-1/2 flex items-center">
+      <div>
+        <img src="/infinity.svg" alt="Infinity" class="w-16 h-16 mb-6" />
+        <h2 class="text-[3.5rem] font-bold text-white leading-none mb-8">
+          DOXA<br />FUSION
+        </h2>
+      </div>
+    </div>
+
+    <!-- Right Content -->
+    <div class="w-full md:w-1/2 text-white">
+      <p class="text-2xl leading-relaxed mb-8">
+        Experience true DeFi stability with DoxaV3's innovative features: zero
+        collateral requirements, self-stabilizing mechanisms, instant finality,
+        and seamless cross-chain integration.
+      </p>
+      <div class="grid grid-cols-2 gap-6 mb-8">
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4">
+          <div class="text-xl font-semibold mb-2">Price Stability</div>
+          <div class="text-white/80">
+            Maintains 1:1 USD peg through advanced algorithmic mechanisms
+          </div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4">
+          <div class="text-xl font-semibold mb-2">Zero Collateral</div>
+          <div class="text-white/80">
+            Pure algorithmic design without collateral requirements
+          </div>
+        </div>
+      </div>
+      <a
+        href="/mechanism"
+        class="inline-block px-8 py-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all text-xl"
+      >
+        EXPLORE MECHANISM
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- Footer -->
 <footer
   class="py-20 bg-gradient-to-br from-[#0F172A] via-[#1E1B4B] to-[#3B0764] text-white relative overflow-hidden"
@@ -531,5 +596,16 @@
         transparent 1px
       ),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  }
+
+  @keyframes shooting {
+    from {
+      transform: translateX(-100%) rotate(var(--rotation));
+      opacity: 1;
+    }
+    to {
+      transform: translateX(200%) rotate(var(--rotation));
+      opacity: 0;
+    }
   }
 </style>
