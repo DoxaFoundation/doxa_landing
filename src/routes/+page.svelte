@@ -355,57 +355,72 @@
 </section>
 
 <!-- Footer -->
-<footer class="py-32 bg-[#3B0764] text-white">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+<footer
+  class="py-20 bg-gradient-to-br from-[#0F172A] via-[#1E1B4B] to-[#3B0764] text-white relative overflow-hidden"
+>
+  <div class="absolute inset-0 bg-grid opacity-10"></div>
+  <div
+    class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"
+  ></div>
+  <div class="max-w-7xl mx-auto px-4 relative">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
       <!-- Column 1 -->
-      <div class="space-y-4">
-        <a href="/docs" class="block hover:text-[#8247E5] transition-colors"
+      <div class="space-y-3">
+        <a
+          href="/docs"
+          class="block hover:text-[#8247E5] transition-colors duration-300"
           >Documentation ↗</a
         >
         <a
           href="/whitepaper"
-          class="block hover:text-[#8247E5] transition-colors">Whitepaper ↗</a
+          class="block hover:text-[#8247E5] transition-colors duration-300"
+          >Whitepaper ↗</a
         >
         <a
           href="/contracts"
-          class="block hover:text-[#8247E5] transition-colors"
+          class="block hover:text-[#8247E5] transition-colors duration-300"
           >Smart Contracts</a
         >
-        <a href="/api" class="block hover:text-[#8247E5] transition-colors"
+        <a
+          href="/api"
+          class="block hover:text-[#8247E5] transition-colors duration-300"
           >API Reference ↗</a
         >
       </div>
 
       <!-- Column 2 -->
-      <div class="space-y-4">
+      <div class="space-y-3">
         <a
           href="/integration"
-          class="block hover:text-[#8247E5] transition-colors"
+          class="block hover:text-[#8247E5] transition-colors duration-300"
           >Integration Guide ↗</a
         >
-        <a href="/bounty" class="block hover:text-[#8247E5] transition-colors"
+        <a
+          href="/bounty"
+          class="block hover:text-[#8247E5] transition-colors duration-300"
           >Bug Bounty ↗</a
         >
         <a
           href="/community"
-          class="block hover:text-[#8247E5] transition-colors">Community ↗</a
+          class="block hover:text-[#8247E5] transition-colors duration-300"
+          >Community ↗</a
         >
         <a
           href="/governance"
-          class="block hover:text-[#8247E5] transition-colors">Governance ↗</a
+          class="block hover:text-[#8247E5] transition-colors duration-300"
+          >Governance ↗</a
         >
       </div>
 
       <!-- Column 3: Social Icons -->
       <div class="col-span-2 md:col-span-2">
-        <div class="flex flex-wrap gap-4">
+        <div class="flex flex-wrap gap-6">
           <a
             href="https://twitter.com/DoxaV3"
-            class="hover:opacity-80 transition-opacity"
+            class="hover:opacity-80 transition-opacity hover:scale-110 transform duration-300"
           >
             <svg
-              class="w-8 h-8 text-white"
+              class="w-8 h-8 text-white hover:text-[#8247E5] transition-colors"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
@@ -459,19 +474,19 @@
         </div>
 
         <!-- Email Signup -->
-        <div class="mt-12">
-          <h3 class="text-xl mb-4">
+        <div class="mt-8">
+          <h3 class="text-lg mb-3 font-semibold">
             Stay updated with DoxaV3's latest developments and announcements
           </h3>
           <form class="flex gap-4">
             <input
               type="email"
               placeholder="Email"
-              class="flex-1 px-6 py-3 rounded-full bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#8247E5]"
+              class="flex-1 px-6 py-2.5 rounded-full bg-white/5 text-white placeholder-gray-400 border border-white/10 focus:outline-none focus:border-[#8247E5] focus:bg-white/10 transition-all duration-300"
             />
             <button
               type="submit"
-              class="px-8 py-3 bg-white text-[#3B0764] rounded-full hover:bg-gray-100 transition-all font-semibold whitespace-nowrap"
+              class="px-6 py-2.5 bg-[#8247E5] text-white rounded-full hover:bg-[#6d35c7] transition-all duration-300 font-semibold whitespace-nowrap hover:scale-105 transform"
             >
               GET UPDATES!
             </button>
@@ -481,12 +496,18 @@
     </div>
 
     <!-- Copyright -->
-    <div class="flex flex-wrap gap-8 text-sm text-gray-400">
+    <div
+      class="flex flex-wrap gap-6 text-sm text-gray-400 border-t border-white/10 pt-6"
+    >
       <span>© 2025 DoxaV3</span>
-      <a href="/terms" class="hover:text-white transition-colors"
+      <a
+        href="/terms"
+        class="hover:text-[#8247E5] transition-colors duration-300"
         >Terms of Use</a
       >
-      <a href="/privacy" class="hover:text-white transition-colors"
+      <a
+        href="/privacy"
+        class="hover:text-[#8247E5] transition-colors duration-300"
         >Privacy Policy</a
       >
     </div>
