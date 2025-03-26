@@ -160,7 +160,7 @@
 </section>
 
 <!-- Latest News -->
-<section class="py-32 mb-32 bg-[#1E0447]">
+<section class="py-32 bg-[#1E0447]">
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex justify-between items-center mb-12">
       <h2 class="text-3xl font-bold text-white">Latest Global Press</h2>
@@ -216,8 +216,13 @@
   </div>
 </section>
 
+<!-- White Space Section -->
+<section class="py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4"></div>
+</section>
+
 <!-- Email Signup -->
-<section class="py-32 mb-32 bg-gradient-to-br from-[#1E0447] to-[#3B0764]">
+<section class="py-32 bg-gradient-to-br from-[#1E0447] to-[#3B0764]">
   <div class="max-w-7xl mx-auto px-4">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -241,6 +246,11 @@
       </form>
     </div>
   </div>
+</section>
+
+<!-- White Space Section -->
+<section class="py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4"></div>
 </section>
 
 <!-- Footer -->
