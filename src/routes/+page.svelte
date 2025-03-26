@@ -44,7 +44,7 @@
       <div>
         <h1 class="text-[4rem] font-bold leading-tight">
           The Future of <span class="text-[#8247E5]">Stablecoin</span> is Here
-        </h1>
+	</h1>
         <p class="mt-6 text-xl text-gray-600">
           DoxaV3 is a decentralized stablecoin built on the Internet Computer,
           offering stability, security, and true decentralization.
@@ -384,7 +384,7 @@
         <img src="/infinity.svg" alt="Infinity" class="w-16 h-16 mb-6" />
         <h2 class="text-[3.5rem] font-bold text-white leading-none mb-8">
           DOXA<br />FUSION
-        </h2>
+	</h2>
       </div>
     </div>
 
@@ -607,5 +607,5 @@
       transform: translateX(200%) rotate(var(--rotation));
       opacity: 0;
     }
-  }
+	}
 </style>
