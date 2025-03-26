@@ -23,16 +23,45 @@
     name="description"
     content="A decentralized stablecoin built on Internet Computer"
   />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 </svelte:head>
 
 <!-- Navigation -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm">
+<header
+  class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100"
+>
   <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <a href="/" class="text-[2rem] font-bold text-[#8247E5]">DoxaV3</a>
+    <a
+      href="/"
+      class="text-[2rem] font-bold text-[#8247E5] font-['Space_Grotesk']"
+      >DoxaV3</a
+    >
     <div class="flex items-center gap-8">
-      <a href="#learn" class="text-gray-600 hover:text-[#8247E5]">Learn</a>
-      <a href="#use" class="text-gray-600 hover:text-[#8247E5]">Use</a>
-      <a href="#develop" class="text-gray-600 hover:text-[#8247E5]">Develop</a>
+      <a
+        href="#learn"
+        class="text-gray-600 hover:text-[#8247E5] font-['Inter'] font-medium transition-colors"
+        >Learn</a
+      >
+      <a
+        href="#use"
+        class="text-gray-600 hover:text-[#8247E5] font-['Inter'] font-medium transition-colors"
+        >Use</a
+      >
+      <a
+        href="#develop"
+        class="text-gray-600 hover:text-[#8247E5] font-['Inter'] font-medium transition-colors"
+        >Develop</a
+      >
+      <a
+        href="/app"
+        class="px-4 py-2 bg-[#8247E5] text-white rounded-full hover:bg-[#6d35c7] transition-all font-['Inter'] font-medium"
+        >Launch App</a
+      >
     </div>
   </nav>
 </header>
@@ -44,7 +73,7 @@
       <div>
         <h1 class="text-[4rem] font-bold leading-tight">
           The Future of <span class="text-[#8247E5]">Stablecoin</span> is Here
-	</h1>
+        </h1>
         <p class="mt-6 text-xl text-gray-600">
           DoxaV3 is a decentralized stablecoin built on the Internet Computer,
           offering stability, security, and true decentralization.
@@ -384,7 +413,7 @@
         <img src="/infinity.svg" alt="Infinity" class="w-16 h-16 mb-6" />
         <h2 class="text-[3.5rem] font-bold text-white leading-none mb-8">
           DOXA<br />FUSION
-	</h2>
+        </h2>
       </div>
     </div>
 
@@ -607,5 +636,5 @@
       transform: translateX(200%) rotate(var(--rotation));
       opacity: 0;
     }
-	}
+  }
 </style>
