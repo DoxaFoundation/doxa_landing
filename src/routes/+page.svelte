@@ -317,7 +317,7 @@
   <div class="absolute inset-0 bg-grid opacity-20"></div>
 
   <div
-    class="relative p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12"
+    class="relative p-14 md:p-12 flex flex-col md:flex-row items-center justify-between gap-10"
   >
     <!-- 3D Background Image -->
     <div class="w-full md:w-1/2 relative">
@@ -325,7 +325,7 @@
         <div class="absolute inset-0">
           <!-- 3D USDX Text -->
           <div
-            class="text-[16rem] font-bold text-white/10 transform -rotate-12 translate-y-8 select-none leading-none"
+            class="text-[14rem] font-bold text-white/10 transform -rotate-12 translate-y-12 select-none leading-none"
           >
             USDX
           </div>
