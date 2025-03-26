@@ -309,9 +309,49 @@
   </div>
 </section>
 
-<!-- White Space Section -->
-<section class="py-32 bg-white">
-  <div class="max-w-7xl mx-auto px-4"></div>
+<!-- Security & Features Section -->
+<section class="relative overflow-hidden rounded-[48px] mx-8 my-24">
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-500 to-blue-600"
+  ></div>
+  <div class="absolute inset-0 bg-grid opacity-20"></div>
+
+  <div
+    class="relative p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12"
+  >
+    <!-- 3D Background Image -->
+    <div class="w-full md:w-1/2 relative">
+      <div class="aspect-[3/2] relative">
+        <div class="absolute inset-0">
+          <!-- 3D USDX Text -->
+          <div
+            class="text-[16rem] font-bold text-white/10 transform -rotate-12 translate-y-8 select-none leading-none"
+          >
+            USDX
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="w-full md:w-1/2 text-white">
+      <h2 class="text-6xl font-bold mb-6 leading-[1.1]">
+        Make DeFi<br />
+        immune to<br />
+        volatility
+      </h2>
+      <p class="text-xl mb-10 text-white/90 leading-relaxed">
+        USDX, the first algorithmic stablecoin on Internet Computer, designed
+        for true price stability and decentralization
+      </p>
+      <a
+        href="/mechanism"
+        class="inline-block px-6 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all text-lg font-medium"
+      >
+        EXPLORE MECHANISM
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- Footer -->
@@ -460,5 +500,15 @@
 
   :global(body) {
     @apply text-gray-900;
+  }
+
+  .bg-grid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   }
 </style>
