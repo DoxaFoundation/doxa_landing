@@ -3,6 +3,22 @@
   import { browser } from "$app/environment";
   let gsap: any;
   let ScrollTrigger: any;
+  let email = "";
+  let submitting = false;
+  let submitStatus: { success?: boolean; message?: string } | null = null;
+  let emailError: string | null = null;
+
+  function validateEmail(email: string): boolean {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  }
+
+  function handleEmailChange() {
+    emailError = null;
+    if (email && !validateEmail(email)) {
+      emailError = "Please enter a valid email address";
+    }
+  }
 
   onMount(async () => {
     if (browser) {
@@ -15,6 +31,41 @@
       gsap.registerPlugin(ScrollTrigger);
     }
   });
+
+  async function handleEmailSubmit(e: Event) {
+    e.preventDefault();
+
+    if (!email) {
+      emailError = "Email is required";
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      emailError = "Please enter a valid email address";
+      return;
+    }
+
+    submitting = true;
+    submitStatus = null;
+
+    try {
+      // For now, just show a success message
+      // TODO: Implement actual email collection in IC canister
+      submitStatus = {
+        success: true,
+        message: "Thanks for signing up! We'll keep you updated.",
+      };
+      email = "";
+      emailError = null;
+    } catch (error) {
+      submitStatus = {
+        success: false,
+        message: "Something went wrong. Please try again later.",
+      };
+    } finally {
+      submitting = false;
+    }
+  }
 </script>
 
 <svelte:head>
@@ -327,18 +378,43 @@
       <p class="text-xl text-gray-300 mb-8">
         to keep up to date with the Internet Computer and DoxaV3 stablecoin
       </p>
-      <form class="flex gap-4 max-w-md mx-auto">
-        <input
-          type="email"
-          placeholder="Email"
-          class="flex-1 px-6 py-3 rounded-full bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#8247E5]"
-        />
-        <button
-          type="submit"
-          class="px-8 py-3 bg-[#8247E5] text-white rounded-full hover:bg-[#6d35c7] transition-all font-semibold whitespace-nowrap"
-        >
-          GET UPDATES
-        </button>
+      <form
+        class="flex flex-col gap-4 max-w-md mx-auto"
+        on:submit={handleEmailSubmit}
+      >
+        <div class="flex flex-col gap-2">
+          <div class="flex gap-4">
+            <input
+              type="email"
+              placeholder="Email"
+              bind:value={email}
+              on:input={handleEmailChange}
+              required
+              class="flex-1 px-6 py-3 rounded-full bg-[#2D1B69] text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-[#8247E5] {emailError
+                ? 'border-red-500'
+                : ''}"
+            />
+            <button
+              type="submit"
+              disabled={submitting || !!emailError}
+              class="px-8 py-3 bg-[#8247E5] text-white rounded-full hover:bg-[#6d35c7] transition-all font-semibold whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {submitting ? "SUBMITTING..." : "GET UPDATES"}
+            </button>
+          </div>
+          {#if emailError}
+            <div class="text-red-400 text-sm text-left px-4">
+              {emailError}
+            </div>
+          {/if}
+        </div>
+        {#if submitStatus}
+          <div
+            class="text-white/90 px-6 py-3 rounded-lg bg-[#2D1B69] border border-white/10"
+          >
+            {submitStatus.message}
+          </div>
+        {/if}
       </form>
     </div>
   </div>
