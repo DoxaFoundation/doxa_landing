@@ -82,47 +82,6 @@
   />
 </svelte:head>
 
-<!-- Navigation -->
-<header
-  class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100"
->
-  <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <a
-      href="/"
-      class="text-[2rem] font-bold text-[#8247E5] font-['Space_Grotesk']"
-      >DoxaV3</a
-    >
-    <div class="flex items-center gap-8">
-      <a
-        href="#partners"
-        class="text-gray-600 hover:text-[#8247E5] font-['Inter'] font-medium transition-colors"
-        >Partners</a
-      >
-      <a
-        href="https://doxa-1.gitbook.io/doxa-guide"
-        target="_blank"
-        rel="noopener"
-        class="text-gray-600 hover:text-[#8247E5] font-['Inter'] font-medium transition-colors"
-        >Use</a
-      >
-      <a
-        href="https://sgv54-gyaaa-aaaag-qngxa-cai.icp0.io/"
-        target="_blank"
-        rel="noopener"
-        class="text-gray-600 hover:text-[#8247E5] font-['Inter'] font-medium transition-colors"
-        >Developer</a
-      >
-      <a
-        href="https://i7m4z-gqaaa-aaaak-qddtq-cai.icp0.io/"
-        target="_blank"
-        rel="noopener"
-        class="px-4 py-2 bg-[#8247E5] text-white rounded-full hover:bg-[#6d35c7] transition-all font-['Inter'] font-medium"
-        >Launch App</a
-      >
-    </div>
-  </nav>
-</header>
-
 <!-- Hero Section -->
 <main class="pt-32 pb-20">
   <div class="max-w-7xl mx-auto px-4">
@@ -150,36 +109,33 @@
           </a>
         </div>
       </div>
-      <div class="grid grid-cols-2 gap-4">
-        <div
-          class="bg-gradient-to-br from-[#1E0447] to-[#3B0764] p-6 rounded-2xl"
-        >
-          <p class="text-gray-300 text-sm mb-1">Total Value Locked</p>
-          <p class="text-white text-2xl font-bold flex items-center">
-            $4.8M
-            <span class="text-green-400 text-sm ml-2">↑ 12.5%</span>
-          </p>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-2 gap-6">
+        <!-- Total Value Locked -->
+        <div class="bg-[#2D1B69] text-white p-6 rounded-2xl">
+          <div class="text-sm text-white/80 mb-2">Total Value Locked</div>
+          <div class="text-2xl font-bold">$4.8M</div>
+          <div class="text-[#8247E5] text-sm">↑ 12.5%</div>
         </div>
-        <div
-          class="bg-gradient-to-br from-[#1E0447] to-[#3B0764] p-6 rounded-2xl"
-        >
-          <p class="text-gray-300 text-sm mb-1">APY</p>
-          <p class="text-white text-2xl font-bold flex items-center">
-            8.2%
-            <span class="text-green-400 text-sm ml-2">↑ 0.5%</span>
-          </p>
+
+        <!-- APY -->
+        <div class="bg-[#2D1B69] text-white p-6 rounded-2xl">
+          <div class="text-sm text-white/80 mb-2">APY</div>
+          <div class="text-2xl font-bold">8.2%</div>
+          <div class="text-[#8247E5] text-sm">↑ 0.5%</div>
         </div>
-        <div
-          class="bg-gradient-to-br from-[#1E0447] to-[#3B0764] p-6 rounded-2xl"
-        >
-          <p class="text-gray-300 text-sm mb-1">Weekly Rewards</p>
-          <p class="text-white text-2xl font-bold">125,000 DOXA</p>
+
+        <!-- Weekly Rewards -->
+        <div class="bg-[#2D1B69] text-white p-6 rounded-2xl">
+          <div class="text-sm text-white/80 mb-2">Weekly Rewards</div>
+          <div class="text-2xl font-bold">125,000 DOXA</div>
         </div>
-        <div
-          class="bg-gradient-to-br from-[#1E0447] to-[#3B0764] p-6 rounded-2xl"
-        >
-          <p class="text-gray-300 text-sm mb-1">Total Fees Collected</p>
-          <p class="text-white text-2xl font-bold">$283.5K</p>
+
+        <!-- Total Fees Collected -->
+        <div class="bg-[#2D1B69] text-white p-6 rounded-2xl">
+          <div class="text-sm text-white/80 mb-2">Total Fees Collected</div>
+          <div class="text-2xl font-bold">$283.5K</div>
         </div>
       </div>
     </div>
