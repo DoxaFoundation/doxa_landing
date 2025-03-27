@@ -456,10 +456,10 @@
         for true price stability and decentralization
       </p>
       <a
-        href="/mechanism"
+        href="/defi"
         class="inline-block px-6 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all text-lg font-medium"
       >
-        EXPLORE MECHANISM
+        EXPLORE DEFI
       </a>
     </div>
   </div>

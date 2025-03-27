@@ -21,6 +21,17 @@
   color: var(--color-text);
 }
 
+/* Hide "New File Content" text */
+body::before {
+  display: none !important;
+}
+
+/* Hide any system-generated content markers */
+.content-marker,
+[data-content-marker] {
+  display: none !important;
+}
+
 body {
   min-height: 100vh;
   margin: 0;

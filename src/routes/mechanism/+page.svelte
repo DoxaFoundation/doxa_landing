@@ -3,7 +3,6 @@
   import { browser } from "$app/environment";
 </script>
 
-# New File Content
 <svelte:head>
   <title>DoxaV3 Mechanism - How It Works</title>
   <meta
