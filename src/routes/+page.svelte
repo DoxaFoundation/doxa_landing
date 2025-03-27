@@ -290,7 +290,7 @@
         </p>
         <a
           href="/mechanism"
-          class="inline-block px-6 py-3 border border-white/20 text-white rounded-full hover:bg-white/10 transition-all"
+          class="inline-block px-8 py-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all text-xl"
         >
           LEARN HOW IT WORKS
         </a>
@@ -307,8 +307,8 @@
           functionality into your dapps with minimal overhead.
         </p>
         <a
-          href="/developers"
-          class="inline-block px-6 py-3 border border-white/20 text-white rounded-full hover:bg-white/10 transition-all"
+          href="/build"
+          class="inline-block px-8 py-4 bg-[#8247E5] text-white rounded-xl hover:bg-[#6d35c7] transition-all text-xl font-medium"
         >
           START BUILDING
         </a>
@@ -537,7 +537,6 @@
           </svg>
           doxadaooperations@gmail.com
         </a>
-
       </div>
 
       <!-- Social Links -->
