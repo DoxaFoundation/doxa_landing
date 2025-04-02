@@ -57,14 +57,17 @@
         ease: "power4.out",
       });
 
-      // Animate stats cards
-      gsap.from(".stats-card", {
+      // Animate stats cards with autoAlpha instead of opacity
+      const statsCards = document.querySelectorAll(".stats-card");
+      gsap.set(statsCards, { autoAlpha: 1 }); // Ensure cards are visible
+      gsap.from(statsCards, {
         duration: 0.8,
         y: 50,
-        opacity: 0,
+        autoAlpha: 0,
         stagger: 0.2,
         delay: 0.5,
         ease: "power3.out",
+        clearProps: "all", // Clear all GSAP-added inline styles after animation
       });
 
       // Animate features on scroll
