@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { browser } from "$app/environment";
   import { tweened } from "svelte/motion";
-  import { cubicOut } from "svelte/easing";
+  import { cubicOut, elasticOut } from "svelte/easing";
   let gsap: any;
   let ScrollTrigger: any;
   let email = "";
@@ -41,61 +41,95 @@
       ScrollTrigger = scrollTriggerModule.default;
       gsap.registerPlugin(ScrollTrigger);
 
-      // Animate hero section
-      gsap.from(".hero-title", {
-        duration: 1,
+      // Enhanced Hero Animations
+      const tl = gsap.timeline();
+
+      tl.from(".hero-title", {
+        duration: 1.2,
         y: 100,
         opacity: 0,
         ease: "power4.out",
+      })
+        .from(
+          ".hero-description",
+          {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: "power3.out",
+          },
+          "-=0.5"
+        )
+        .from(
+          ".hero-buttons",
+          {
+            duration: 0.8,
+            y: 30,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power3.out",
+          },
+          "-=0.5"
+        );
+
+      // Floating Animation for Stats Cards
+      gsap.to(".stats-card", {
+        y: -20,
+        duration: 2,
+        ease: "power1.inOut",
+        stagger: {
+          each: 0.2,
+          repeat: -1,
+          yoyo: true,
+        },
       });
 
-      gsap.from(".hero-description", {
-        duration: 1,
-        y: 50,
-        opacity: 0,
-        delay: 0.3,
-        ease: "power4.out",
-      });
-
-      // Animate stats cards with autoAlpha instead of opacity
-      const statsCards = document.querySelectorAll(".stats-card");
-      gsap.set(statsCards, { autoAlpha: 1 }); // Ensure cards are visible
-      gsap.from(statsCards, {
-        duration: 0.8,
-        y: 50,
-        autoAlpha: 0,
-        stagger: 0.2,
-        delay: 0.5,
-        ease: "power3.out",
-        clearProps: "all", // Clear all GSAP-added inline styles after animation
-      });
-
-      // Animate features on scroll
+      // Enhanced Feature Cards Animation
       gsap.from(".feature-card", {
         scrollTrigger: {
           trigger: ".feature-card",
           start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
         },
-        duration: 0.8,
+        duration: 1,
         y: 100,
         opacity: 0,
+        rotation: 5,
         stagger: 0.2,
         ease: "power3.out",
       });
 
-      // Animate news cards on scroll
+      // News Cards Animation
       gsap.from(".news-card", {
         scrollTrigger: {
           trigger: ".news-card",
           start: "top 80%",
+          toggleActions: "play none none reverse",
         },
-        duration: 0.8,
-        x: -100,
+        duration: 1,
+        scale: 0.8,
         opacity: 0,
         stagger: 0.2,
-        ease: "power3.out",
+        ease: "back.out(1.7)",
+      });
+
+      // Particle System Animation
+      const particles = document.querySelectorAll(".particle");
+      particles.forEach((particle) => {
+        gsap.to(particle, {
+          x: "random(-100, 100)",
+          y: "random(-100, 100)",
+          rotation: "random(-180, 180)",
+          duration: "random(3, 6)",
+          repeat: -1,
+          yoyo: true,
+          ease: "none",
+        });
       });
     }
+
+    // Enhanced number animations
     tvl.set(4.8);
     apy.set(8.2);
   });
@@ -204,24 +238,54 @@
 
   <!-- Hero Section -->
   <div class="container mx-auto px-6 py-20 relative">
+    <!-- Animated Particles -->
+    <div class="absolute inset-0 overflow-hidden">
+      {#each Array(20) as _, i}
+        <div
+          class="particle absolute h-2 w-2 rounded-full"
+          style="
+            background: {['#FF4D4D', '#4DA6FF', '#4DFFB7'][i % 3]};
+            left: {Math.random() * 100}%;
+            top: {Math.random() * 100}%;
+            filter: blur(1px);
+            opacity: 0.6;
+          "
+        />
+      {/each}
+    </div>
+
     <div class="flex flex-col md:flex-row items-center">
-      <div class="md:w-1/2">
+      <div class="md:w-1/2 relative">
+        <!-- Gradient Orb -->
+        <div
+          class="absolute -left-20 -top-20 w-40 h-40 bg-purple-500/30 rounded-full filter blur-3xl animate-pulse"
+        ></div>
+
         <h1
-          class="hero-title text-5xl md:text-7xl font-bold text-white mb-8 leading-tight"
+          class="hero-title text-5xl md:text-7xl font-bold text-white mb-8 leading-tight relative"
         >
-          The Future of <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
-            >Stablecoin</span
-          > is Here
+          The Future of
+          <span class="relative inline-block">
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
+              >Stablecoin</span
+            >
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 filter blur-xl opacity-30 animate-pulse"
+            ></div>
+          </span>
+          is Here
         </h1>
+
         <p class="hero-description text-xl text-gray-300 mb-8">
           DoxaV3 is a decentralized stablecoin built on the Internet Computer,
           offering stability, security, and true decentralization.
         </p>
+
         <div class="flex space-x-4">
           <a
             href="https://github.com"
-            class="group bg-white text-purple-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+            class="hero-buttons group bg-white text-purple-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:-rotate-1 flex items-center gap-2"
           >
             View on GitHub
             <svg
@@ -241,17 +305,22 @@
           </a>
           <a
             href="#learn-more"
-            class="group border border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-purple-900 transition-all duration-300"
+            class="hero-buttons group border border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-purple-900 transition-all duration-300 hover:scale-105 hover:rotate-1"
           >
             Learn More
           </a>
         </div>
       </div>
 
-      <!-- Stats Cards -->
-      <div class="md:w-1/2 mt-12 md:mt-0 grid grid-cols-2 gap-6">
+      <!-- Stats Cards with enhanced animations -->
+      <div class="md:w-1/2 mt-12 md:mt-0 grid grid-cols-2 gap-6 relative">
+        <!-- Background Glow -->
         <div
-          class="stats-card bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105"
+          class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 filter blur-3xl"
+        ></div>
+
+        <div
+          class="stats-card bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:rotate-2"
         >
           <h3 class="text-gray-400 mb-2">Total Value Locked</h3>
           <div class="text-3xl font-bold text-white">${$tvl}M</div>
@@ -274,20 +343,20 @@
           </div>
         </div>
         <div
-          class="stats-card bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105"
+          class="stats-card bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:rotate-2"
         >
           <h3 class="text-gray-400 mb-2">APY</h3>
           <div class="text-3xl font-bold text-white">{$apy}%</div>
           <div class="text-green-400">↑ 0.5%</div>
         </div>
         <div
-          class="stats-card bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105"
+          class="stats-card bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:rotate-2"
         >
           <h3 class="text-gray-400 mb-2">Weekly Rewards</h3>
           <div class="text-3xl font-bold text-white">125,000 DOXA</div>
         </div>
         <div
-          class="stats-card bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105"
+          class="stats-card bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:rotate-2"
         >
           <h3 class="text-gray-400 mb-2">Total Fees Collected</h3>
           <div class="text-3xl font-bold text-white">$283.5K</div>
@@ -734,10 +803,10 @@
   @keyframes float {
     0%,
     100% {
-      transform: translateY(0);
+      transform: translateY(0) translateX(0);
     }
     50% {
-      transform: translateY(-20px);
+      transform: translateY(-20px) translateX(10px);
     }
   }
 
@@ -764,5 +833,65 @@
 
   .feature-card:hover {
     transform: translateY(-10px);
+  }
+
+  .particle {
+    animation: float 3s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.1);
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse 3s infinite;
+  }
+
+  .stats-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .stats-card:hover {
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-title {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      theme("colors.purple.400"),
+      transparent
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: lineReveal 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 1s;
+  }
+
+  @keyframes lineReveal {
+    to {
+      transform: scaleX(1);
+    }
   }
 </style>
