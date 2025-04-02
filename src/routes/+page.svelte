@@ -41,15 +41,16 @@
       ScrollTrigger = scrollTriggerModule.default;
       gsap.registerPlugin(ScrollTrigger);
 
-      // Enhanced Hero Animations
-      const tl = gsap.timeline();
+      // Enhanced Hero Section Animation
+      const heroTl = gsap.timeline();
 
-      tl.from(".hero-title", {
-        duration: 1.2,
-        y: 100,
-        opacity: 0,
-        ease: "power4.out",
-      })
+      heroTl
+        .from(".hero-title", {
+          duration: 1.2,
+          y: 100,
+          opacity: 0,
+          ease: "power4.out",
+        })
         .from(
           ".hero-description",
           {
@@ -72,47 +73,171 @@
           "-=0.5"
         );
 
-      // Floating Animation for Stats Cards
-      gsap.to(".stats-card", {
-        y: -20,
-        duration: 2,
-        ease: "power1.inOut",
-        stagger: {
-          each: 0.2,
-          repeat: -1,
-          yoyo: true,
-        },
-      });
+      // Enhanced Stats Cards Animation
+      const statsCards = document.querySelectorAll(".stats-card");
+      gsap.set(statsCards, { opacity: 1 });
 
-      // Enhanced Feature Cards Animation
-      gsap.from(".feature-card", {
+      gsap.from(statsCards, {
+        duration: 1,
+        y: 50,
+        opacity: 0,
+        stagger: 0.2,
+        ease: "power3.out",
         scrollTrigger: {
-          trigger: ".feature-card",
+          trigger: ".stats-card",
           start: "top 80%",
           end: "bottom 20%",
           toggleActions: "play none none reverse",
         },
-        duration: 1,
-        y: 100,
-        opacity: 0,
-        rotation: 5,
-        stagger: 0.2,
-        ease: "power3.out",
       });
 
-      // News Cards Animation
-      gsap.from(".news-card", {
-        scrollTrigger: {
-          trigger: ".news-card",
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-        duration: 1,
-        scale: 0.8,
-        opacity: 0,
-        stagger: 0.2,
-        ease: "back.out(1.7)",
+      // Continuous floating animation for stats cards
+      statsCards.forEach((card, index) => {
+        gsap.to(card, {
+          y: -20,
+          duration: 2,
+          delay: index * 0.2,
+          ease: "power1.inOut",
+          repeat: -1,
+          yoyo: true,
+        });
       });
+
+      // Why Choose Section Animation
+      const whyChooseTitle = document.querySelector(".why-choose-title");
+      if (whyChooseTitle) {
+        gsap.from(whyChooseTitle, {
+          scrollTrigger: {
+            trigger: whyChooseTitle,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power3.out",
+        });
+      }
+
+      // Enhanced Feature Cards Animation with Stagger
+      const featureCards = document.querySelectorAll(".feature-card");
+      featureCards.forEach((card, index) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1.2,
+          y: 100,
+          x: index % 2 === 0 ? -50 : 50,
+          opacity: 0,
+          rotation: index % 2 === 0 ? -5 : 5,
+          delay: index * 0.2,
+          ease: "power3.out",
+        });
+      });
+
+      // Latest News Section Animation with Enhanced Effects
+      const newsSection = document.querySelector(".news-section-title");
+      if (newsSection) {
+        gsap.from(newsSection, {
+          scrollTrigger: {
+            trigger: newsSection,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power3.out",
+        });
+      }
+
+      // Enhanced News Cards Animation
+      const newsCards = document.querySelectorAll(".news-card");
+      newsCards.forEach((card, index) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1.2,
+          y: 100,
+          x: index % 2 === 0 ? -50 : 50,
+          opacity: 0,
+          rotation: index % 2 === 0 ? -5 : 5,
+          delay: index * 0.2,
+          ease: "back.out(1.7)",
+        });
+      });
+
+      // Integration Section Enhanced Animation
+      const integrationCards = document.querySelectorAll(".integration-card");
+      integrationCards.forEach((card, index) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 75%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1.5,
+          y: 100,
+          x: index === 0 ? -100 : 100,
+          opacity: 0,
+          rotation: index === 0 ? -5 : 5,
+          ease: "power3.out",
+        });
+      });
+
+      // Newsletter Section Animation with Background
+      const newsletterSection = document.querySelector(".newsletter-content");
+      if (newsletterSection) {
+        gsap.from(newsletterSection, {
+          scrollTrigger: {
+            trigger: newsletterSection,
+            start: "top 75%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1.2,
+          y: 100,
+          opacity: 0,
+          ease: "power3.out",
+        });
+      }
+
+      // CTA Section Enhanced Animation
+      const ctaContent = document.querySelector(".cta-content");
+      if (ctaContent) {
+        const ctaTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ctaContent,
+            start: "top 75%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        ctaTl
+          .from(ctaContent, {
+            duration: 1,
+            y: 100,
+            opacity: 0,
+            ease: "power3.out",
+          })
+          .from(
+            ".cta-content .inline-flex",
+            {
+              duration: 0.8,
+              y: 30,
+              opacity: 0,
+              stagger: 0.2,
+              ease: "back.out(1.7)",
+            },
+            "-=0.5"
+          );
+      }
 
       // Particle System Animation
       const particles = document.querySelectorAll(".particle");
@@ -368,13 +493,14 @@
 
 <!-- Features Section -->
 <section class="py-32 relative overflow-hidden">
-  <!-- Animated Background Grid -->
   <div class="absolute inset-0 bg-[#0a0118]">
     <div class="absolute inset-0 bg-grid opacity-10"></div>
   </div>
 
   <div class="relative container mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16">
+    <h2
+      class="why-choose-title text-4xl md:text-5xl font-bold text-center text-white mb-16"
+    >
       Why Choose <span
         class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
         >DoxaV3</span
@@ -515,24 +641,46 @@
 <section class="py-32 relative overflow-hidden">
   <div class="absolute inset-0 bg-[#0a0118]">
     <div class="absolute inset-0 bg-grid opacity-10"></div>
+    <!-- Animated Background Elements -->
+    {#each Array(10) as _, i}
+      <div
+        class="absolute h-32 w-32 rounded-full"
+        style="
+          background: radial-gradient(circle, {[
+          'rgba(147,51,234,0.1)',
+          'rgba(236,72,153,0.1)',
+          'rgba(99,102,241,0.1)',
+        ][i % 3]} 0%, transparent 70%);
+          left: {Math.random() * 100}%;
+          top: {Math.random() * 100}%;
+          transform: scale({0.5 + Math.random()});
+          animation: float {5 + Math.random() * 5}s infinite ease-in-out;
+        "
+      ></div>
+    {/each}
   </div>
 
   <div class="relative container mx-auto px-6">
     <div class="flex justify-between items-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-white">
+      <h2
+        class="news-section-title text-4xl md:text-5xl font-bold text-white relative"
+      >
         Latest <span
           class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
           >Updates</span
         >
+        <div
+          class="absolute -bottom-2 left-0 w-1/3 h-1 bg-gradient-to-r from-purple-400 to-transparent"
+        ></div>
       </h2>
       <a
         href="/news"
-        class="group flex items-center gap-2 text-white hover:text-purple-400 transition-colors"
+        class="group flex items-center gap-2 text-white hover:text-purple-400 transition-colors relative overflow-hidden"
       >
-        <span>View All</span>
+        <span class="relative z-10">View All</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5 transform group-hover:translate-x-1 transition-transform"
+          class="h-5 w-5 transform group-hover:translate-x-1 transition-transform relative z-10"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -544,21 +692,58 @@
             d="M17 8l4 4m0 0l-4 4m4-4H3"
           />
         </svg>
+        <div
+          class="absolute inset-0 bg-purple-500/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300"
+        ></div>
       </a>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {#each [{ title: "DoxaV3: The First Algorithmic Stablecoin on Internet Computer", date: "Jan 20, 2025", link: "/news/first-algorithmic-stablecoin" }, { title: "How DoxaV3 Maintains Price Stability Through Smart Contracts", date: "Jan 15, 2025", link: "/news/price-stability" }, { title: "DoxaV3 Partners with Major DeFi Protocols", date: "Jan 10, 2025", link: "/news/defi-protocols" }, { title: "The Future of Stablecoins on Internet Computer", date: "Jan 5, 2025", link: "/news/future-stablecoins" }] as news}
-        <a href={news.link} class="group">
+      {#each [{ title: "DoxaV3: The First Algorithmic Stablecoin on Internet Computer", date: "Jan 20, 2025", link: "/news/first-algorithmic-stablecoin" }, { title: "How DoxaV3 Maintains Price Stability Through Smart Contracts", date: "Jan 15, 2025", link: "/news/price-stability" }, { title: "DoxaV3 Partners with Major DeFi Protocols", date: "Jan 10, 2025", link: "/news/defi-protocols" }, { title: "The Future of Stablecoins on Internet Computer", date: "Jan 5, 2025", link: "/news/future-stablecoins" }] as news, i}
+        <a href={news.link} class="news-card group">
           <div
-            class="p-8 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500"
+            class="p-8 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500 relative overflow-hidden"
           >
-            <h3
-              class="text-xl font-semibold text-white mb-4 group-hover:text-purple-400 transition-colors"
-            >
-              {news.title}
-            </h3>
-            <time class="text-purple-400">{news.date}</time>
+            <!-- Card Background Animation -->
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-purple-600/0 to-pink-600/0 opacity-0 group-hover:opacity-20 transition-all duration-500"
+            ></div>
+            <div
+              class="absolute inset-0 bg-purple-500/10 translate-y-[-100%] group-hover:translate-y-0 transition-transform duration-500"
+            ></div>
+
+            <!-- Content -->
+            <div class="relative">
+              <h3
+                class="text-xl font-semibold text-white mb-4 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-2 duration-300"
+              >
+                {news.title}
+              </h3>
+              <time
+                class="text-purple-400 inline-block transform group-hover:translate-x-2 transition-transform duration-300"
+                >{news.date}</time
+              >
+
+              <!-- Hover Arrow -->
+              <div
+                class="absolute right-0 bottom-0 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-purple-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </div>
+            </div>
           </div>
         </a>
       {/each}
@@ -593,7 +778,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
       <!-- Algorithmic Stability -->
       <div
-        class="p-8 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500"
+        class="integration-card p-8 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500"
       >
         <h3 class="text-3xl font-bold text-white mb-6">
           Algorithmic Stability
@@ -627,7 +812,7 @@
 
       <!-- Integration & Development -->
       <div
-        class="p-8 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500"
+        class="integration-card p-8 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500"
       >
         <h3 class="text-3xl font-bold text-white mb-6">
           Integration & Development
@@ -669,7 +854,7 @@
   ></div>
 
   <div class="relative container mx-auto px-6 max-w-4xl">
-    <div class="text-center">
+    <div class="newsletter-content text-center">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
         Stay Updated
       </h2>
@@ -733,38 +918,40 @@
   </div>
 
   <div class="relative container mx-auto px-6 text-center">
-    <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
-      Ready to Join the Future of Finance?
-    </h2>
-    <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-      Start using DoxaV3 today and experience the power of decentralized
-      stablecoins on the Internet Computer.
-    </p>
-    <div class="flex flex-col md:flex-row gap-6 justify-center">
-      <a
-        href="#"
-        class="inline-flex items-center justify-center px-8 py-3 bg-white text-purple-900 rounded-full font-medium hover:bg-gray-100 transition-colors"
-      >
-        Launch App
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5 ml-2"
-          viewBox="0 0 20 20"
-          fill="currentColor"
+    <div class="cta-content">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
+        Ready to Join the Future of Finance?
+      </h2>
+      <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+        Start using DoxaV3 today and experience the power of decentralized
+        stablecoins on the Internet Computer.
+      </p>
+      <div class="flex flex-col md:flex-row gap-6 justify-center">
+        <a
+          href="#"
+          class="inline-flex items-center justify-center px-8 py-3 bg-white text-purple-900 rounded-full font-medium hover:bg-gray-100 transition-colors"
         >
-          <path
-            fill-rule="evenodd"
-            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </a>
-      <a
-        href="#"
-        class="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white rounded-full font-medium hover:bg-white hover:text-purple-900 transition-colors"
-      >
-        Read Documentation
-      </a>
+          Launch App
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 ml-2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </a>
+        <a
+          href="#"
+          class="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white rounded-full font-medium hover:bg-white hover:text-purple-900 transition-colors"
+        >
+          Read Documentation
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -828,11 +1015,13 @@
 
   .feature-card {
     transform: translateY(0);
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
   }
 
   .feature-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
   }
 
   .particle {
@@ -857,11 +1046,11 @@
 
   .stats-card {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
+    will-change: transform, opacity;
   }
 
   .stats-card:hover {
-    transform: translateY(-10px) rotate(2deg);
+    transform: translateY(-10px) rotate(2deg) scale(1.05);
     box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
   }
 
@@ -893,5 +1082,47 @@
     to {
       transform: scaleX(1);
     }
+  }
+
+  .news-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+  }
+
+  .news-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+  }
+
+  .news-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      theme("colors.purple.400"),
+      transparent
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+
+  .news-card:hover::after {
+    transform: scaleX(1);
+  }
+
+  .integration-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+  }
+
+  .integration-card:hover {
+    transform: translateY(-10px) scale(1.02) rotate(1deg);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
   }
 </style>
