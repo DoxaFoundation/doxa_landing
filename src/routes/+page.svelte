@@ -379,8 +379,8 @@
       {/each}
     </div>
 
-    <div class="flex flex-col md:flex-row items-center">
-      <div class="md:w-1/2 relative">
+    <div class="flex flex-col md:flex-row items-stretch">
+      <div class="md:w-1/2 relative flex flex-col justify-center">
         <!-- Gradient Orb -->
         <div
           class="absolute -left-20 -top-20 w-40 h-40 bg-purple-500/30 rounded-full filter blur-3xl animate-pulse"
@@ -407,7 +407,7 @@
           offering stability, security, and true decentralization.
         </p>
 
-        <div class="flex space-x-4">
+        <div class="flex space-x-4 hero-buttons">
           <a
             href="https://github.com"
             class="hero-buttons group bg-white text-purple-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:-rotate-1 flex items-center gap-2"
@@ -445,14 +445,16 @@
         ></div>
 
         <div
-          class="stats-card bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:rotate-2"
+          class="stats-card flex flex-col justify-between bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:rotate-2"
         >
-          <h3 class="text-gray-400 mb-2">Total Value Locked</h3>
-          <div class="text-3xl font-bold text-white">${$tvl}M</div>
-          <div class="text-green-400 flex items-center gap-1">
+          <div>
+            <h3 class="text-gray-400 mb-2 truncate">Total Value Locked</h3>
+            <div class="text-3xl font-bold text-white truncate">${$tvl}M</div>
+          </div>
+          <div class="text-green-400 flex items-center gap-1 mt-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4"
+              class="h-4 w-4 flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -464,27 +466,39 @@
                 d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
               />
             </svg>
-            12.5%
+            <span class="truncate">12.5%</span>
           </div>
         </div>
         <div
-          class="stats-card bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:rotate-2"
+          class="stats-card flex flex-col justify-between bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:rotate-2"
         >
-          <h3 class="text-gray-400 mb-2">APY</h3>
-          <div class="text-3xl font-bold text-white">{$apy}%</div>
-          <div class="text-green-400">↑ 0.5%</div>
+          <div>
+            <h3 class="text-gray-400 mb-2 truncate">APY</h3>
+            <div class="text-3xl font-bold text-white truncate">{$apy}%</div>
+          </div>
+          <div class="text-green-400 mt-2 truncate">↑ 0.5%</div>
         </div>
         <div
-          class="stats-card bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:rotate-2"
+          class="stats-card flex flex-col justify-between bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:rotate-2"
         >
-          <h3 class="text-gray-400 mb-2">Weekly Rewards</h3>
-          <div class="text-3xl font-bold text-white">125,000 DOXA</div>
+          <div>
+            <h3 class="text-gray-400 mb-2 truncate">Weekly Rewards</h3>
+            <div class="text-3xl font-bold text-white truncate">
+              125,000 DOXA
+            </div>
+          </div>
+          <!-- Placeholder for equal height -->
+          <div class="mt-2 h-5">&nbsp;</div>
         </div>
         <div
-          class="stats-card bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:rotate-2"
+          class="stats-card flex flex-col justify-between bg-purple-800/30 backdrop-blur-xl p-6 rounded-2xl border border-purple-700/50 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:rotate-2"
         >
-          <h3 class="text-gray-400 mb-2">Total Fees Collected</h3>
-          <div class="text-3xl font-bold text-white">$283.5K</div>
+          <div>
+            <h3 class="text-gray-400 mb-2 truncate">Total Fees Collected</h3>
+            <div class="text-3xl font-bold text-white truncate">$283.5K</div>
+          </div>
+          <!-- Placeholder for equal height -->
+          <div class="mt-2 h-5">&nbsp;</div>
         </div>
       </div>
     </div>
@@ -700,9 +714,9 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {#each [{ title: "DoxaV3: The First Algorithmic Stablecoin on Internet Computer", date: "Jan 20, 2025", link: "/news/first-algorithmic-stablecoin" }, { title: "How DoxaV3 Maintains Price Stability Through Smart Contracts", date: "Jan 15, 2025", link: "/news/price-stability" }, { title: "DoxaV3 Partners with Major DeFi Protocols", date: "Jan 10, 2025", link: "/news/defi-protocols" }, { title: "The Future of Stablecoins on Internet Computer", date: "Jan 5, 2025", link: "/news/future-stablecoins" }] as news, i}
-        <a href={news.link} class="news-card group">
+        <a href={news.link} class="news-card group flex">
           <div
-            class="p-8 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500 relative overflow-hidden"
+            class="flex flex-col justify-between w-full p-8 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500 relative overflow-hidden"
           >
             <!-- Card Background Animation -->
             <div
@@ -715,7 +729,8 @@
             <!-- Content -->
             <div class="relative">
               <h3
-                class="text-xl font-semibold text-white mb-4 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-2 duration-300"
+                class="text-xl font-semibold text-white mb-4 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-2 duration-300 h-20 overflow-hidden text-ellipsis"
+                style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;"
               >
                 {news.title}
               </h3>
