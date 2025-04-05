@@ -18,7 +18,7 @@
 
 <div class="app overflow-hidden">
   <Nav />
-  <main>
+  <main class="pt-20">
     <slot />
   </main>
   <footer class="bg-[#110a29] py-16">

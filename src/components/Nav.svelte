@@ -3,39 +3,37 @@
 
 <!-- Navigation -->
 <header
-  class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100"
+  class="fixed top-0 left-0 right-0 z-50 bg-[#110a29]/90 backdrop-blur-lg border-b border-white/10 transition-all duration-300"
 >
-  <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <a
-      href="/"
-      class="text-[2rem] font-bold text-[#8247E5] font-['Space_Grotesk']"
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="/" class="text-2xl font-bold text-white font-['Space_Grotesk']"
       >DoxaV3</a
     >
     <div class="flex items-center gap-8">
       <a
         href="/partners"
-        class="text-gray-600 hover:text-[#8247E5] font-['Inter'] font-medium transition-colors"
+        class="text-gray-300 hover:text-white font-['Inter'] font-medium transition-colors"
         >Partners</a
       >
       <a
         href="https://doxa-1.gitbook.io/doxa-guide"
         target="_blank"
         rel="noopener"
-        class="text-gray-600 hover:text-[#8247E5] font-['Inter'] font-medium transition-colors"
+        class="text-gray-300 hover:text-white font-['Inter'] font-medium transition-colors"
         >Use</a
       >
       <a
         href="https://sgv54-gyaaa-aaaag-qngxa-cai.icp0.io/"
         target="_blank"
         rel="noopener"
-        class="text-gray-600 hover:text-[#8247E5] font-['Inter'] font-medium transition-colors"
+        class="text-gray-300 hover:text-white font-['Inter'] font-medium transition-colors"
         >Developer</a
       >
       <a
         href="https://i7m4z-gqaaa-aaaak-qddtq-cai.icp0.io/"
         target="_blank"
         rel="noopener"
-        class="px-4 py-2 bg-[#8247E5] text-white rounded-full hover:bg-[#6d35c7] transition-all font-['Inter'] font-medium"
+        class="inline-flex items-center justify-center px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 text-white rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-pink-500/30"
         >Launch App</a
       >
     </div>

@@ -67,7 +67,6 @@
             duration: 0.8,
             y: 30,
             opacity: 0,
-            stagger: 0.2,
             ease: "power3.out",
           },
           "-=0.5"
@@ -302,7 +301,11 @@
     content="A decentralized stablecoin built on Internet Computer"
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin="anonymous"
+  />
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet"
@@ -310,56 +313,12 @@
 </svelte:head>
 
 <div
-  class="min-h-screen bg-gradient-to-br from-purple-900 via-[#1E0447] to-purple-900 relative overflow-hidden"
+  class="relative min-h-screen overflow-hidden bg-gradient-to-br from-purple-900 via-indigo-900 to-gray-900 text-white font-space-grotesk"
 >
-  <!-- Animated Background -->
-  <div class="absolute inset-0 overflow-hidden">
-    {#each Array(20) as _, i}
-      <div
-        class="absolute h-px opacity-20"
-        style="
-          background: linear-gradient(90deg, {['#FF4D4D', '#4DA6FF', '#4DFFB7'][
-          i % 3
-        ]}, transparent);
-          width: {50 + Math.random() * 150}px;
-          left: {Math.random() * 100}%;
-          top: {Math.random() * 100}%;
-          transform: rotate({Math.random() * 360}deg);
-          animation: shooting {2 + Math.random() * 3}s linear infinite;
-        "
-      />
-    {/each}
-  </div>
-
-  <!-- Navigation -->
-  <nav class="container mx-auto px-6 py-4 relative">
-    <div class="flex items-center justify-between">
-      <div class="text-2xl font-bold text-white flex items-center gap-2">
-        <div
-          class="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center"
-        >
-          D3
-        </div>
-        DoxaV3
-      </div>
-      <div class="hidden md:flex space-x-8">
-        <a href="#" class="text-gray-300 hover:text-white transition-colors"
-          >Partners</a
-        >
-        <a href="#" class="text-gray-300 hover:text-white transition-colors"
-          >Use</a
-        >
-        <a href="#" class="text-gray-300 hover:text-white transition-colors"
-          >Developer</a
-        >
-        <button
-          class="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105"
-        >
-          Launch App
-        </button>
-      </div>
-    </div>
-  </nav>
+  <!-- Grid Background -->
+  <div
+    class="grid-background absolute inset-0 z-0 opacity-50 pointer-events-none"
+  ></div>
 
   <!-- Hero Section -->
   <div class="container mx-auto px-6 py-20 relative">
@@ -410,7 +369,8 @@
         <div class="flex space-x-4 hero-buttons">
           <a
             href="https://github.com"
-            class="hero-buttons group bg-white text-purple-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:-rotate-1 flex items-center gap-2"
+            target="_blank"
+            class="group bg-white text-purple-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:-rotate-1 flex items-center gap-2"
           >
             View on GitHub
             <svg
@@ -430,7 +390,7 @@
           </a>
           <a
             href="#learn-more"
-            class="hero-buttons group border border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-purple-900 transition-all duration-300 hover:scale-105 hover:rotate-1"
+            class="group border border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-purple-900 transition-all duration-300 hover:scale-105 hover:rotate-1"
           >
             Learn More
           </a>
