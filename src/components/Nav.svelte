@@ -3,7 +3,7 @@
 
 <!-- Navigation -->
 <header
-  class="fixed top-0 left-0 right-0 z-50 bg-[#110a29]/90 backdrop-blur-lg border-b border-white/10 transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 bg-[#110a29] backdrop-blur-lg border-b border-white/10 shadow-lg transition-all duration-300"
 >
   <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     <a href="/" class="text-2xl font-bold text-white font-['Space_Grotesk']"
