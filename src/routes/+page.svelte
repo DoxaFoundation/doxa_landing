@@ -313,7 +313,7 @@
 </svelte:head>
 
 <div
-  class="relative min-h-screen overflow-hidden bg-gradient-to-br from-purple-900 via-indigo-900 to-gray-900 text-white font-space-grotesk"
+  class="relative min-h-screen overflow-hidden bg-gradient-to-br from-purple-900 to-[#0a0118] text-white font-space-grotesk"
 >
   <!-- Grid Background -->
   <div
@@ -351,11 +351,11 @@
           The Future of
           <span class="relative inline-block">
             <span
-              class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
+              class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-400"
               >Stablecoin</span
             >
             <div
-              class="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 filter blur-xl opacity-30 animate-pulse"
+              class="absolute inset-0 bg-gradient-to-r from-purple-400 to-yellow-400 filter blur-xl opacity-30 animate-pulse"
             ></div>
           </span>
           is Here
