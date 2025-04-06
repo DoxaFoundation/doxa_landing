@@ -1,0 +1,238 @@
+<script lang="ts">
+  import { onMount } from "svelte";
+
+  export let gsap: any;
+  export let ScrollTrigger: any;
+
+  const newsItems = [
+    {
+      title: "DoxaV3: The First Algorithmic Stablecoin on Internet Computer",
+      date: "Jan 20, 2025",
+      link: "/news/first-algorithmic-stablecoin",
+    },
+    {
+      title: "How DoxaV3 Maintains Price Stability Through Smart Contracts",
+      date: "Jan 15, 2025",
+      link: "/news/price-stability",
+    },
+    {
+      title: "DoxaV3 Partners with Major DeFi Protocols",
+      date: "Jan 10, 2025",
+      link: "/news/defi-protocols",
+    },
+    {
+      title: "The Future of Stablecoins on Internet Computer",
+      date: "Jan 5, 2025",
+      link: "/news/future-stablecoins",
+    },
+  ];
+
+  onMount(() => {
+    initAnimations();
+  });
+
+  function initAnimations() {
+    // Latest News Section Animation with Enhanced Effects
+    const newsSection = document.querySelector(".news-section-title");
+    if (newsSection) {
+      gsap.from(newsSection, {
+        scrollTrigger: {
+          trigger: newsSection,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+        duration: 1,
+        y: 50,
+        opacity: 0,
+        ease: "power3.out",
+      });
+    }
+
+    // Enhanced News Cards Animation
+    const newsCards = document.querySelectorAll(".news-card");
+    newsCards.forEach((card, index) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+        duration: 1.2,
+        y: 100,
+        x: index % 2 === 0 ? -50 : 50,
+        opacity: 0,
+        rotation: index % 2 === 0 ? -5 : 5,
+        delay: index * 0.2,
+        ease: "back.out(1.7)",
+      });
+    });
+  }
+</script>
+
+<section class="py-32 relative overflow-hidden">
+  <div class="absolute inset-0 bg-[#0a0118]">
+    <div class="absolute inset-0 bg-grid opacity-10"></div>
+    <!-- Animated Background Elements -->
+    {#each Array(10) as _, i}
+      <div
+        class="absolute h-32 w-32 rounded-full"
+        style="
+          background: radial-gradient(circle, {[
+          'rgba(147,51,234,0.1)',
+          'rgba(236,72,153,0.1)',
+          'rgba(99,102,241,0.1)',
+        ][i % 3]} 0%, transparent 70%);
+          left: {Math.random() * 100}%;
+          top: {Math.random() * 100}%;
+          transform: scale({0.5 + Math.random()});
+          animation: float {5 + Math.random() * 5}s infinite ease-in-out;
+        "
+      ></div>
+    {/each}
+  </div>
+
+  <div class="relative container mx-auto px-6">
+    <div class="flex justify-between items-center mb-16">
+      <h2
+        class="news-section-title text-4xl md:text-5xl font-bold text-white relative"
+      >
+        Latest <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
+          >Updates</span
+        >
+        <div
+          class="absolute -bottom-2 left-0 w-1/3 h-1 bg-gradient-to-r from-purple-400 to-transparent"
+        ></div>
+      </h2>
+      <a
+        href="/news"
+        class="group flex items-center gap-2 text-white hover:text-purple-400 transition-colors relative overflow-hidden"
+      >
+        <span class="relative z-10">View All</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 transform group-hover:translate-x-1 transition-transform relative z-10"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          />
+        </svg>
+        <div
+          class="absolute inset-0 bg-purple-500/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300"
+        ></div>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {#each newsItems as news, i}
+        <a href={news.link} class="news-card group flex">
+          <div
+            class="flex flex-col justify-between w-full p-8 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500 relative overflow-hidden"
+          >
+            <!-- Card Background Animation -->
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-purple-600/0 to-pink-600/0 opacity-0 group-hover:opacity-20 transition-all duration-500"
+            ></div>
+            <div
+              class="absolute inset-0 bg-purple-500/10 translate-y-[-100%] group-hover:translate-y-0 transition-transform duration-500"
+            ></div>
+
+            <!-- Content -->
+            <div class="relative">
+              <h3
+                class="text-xl font-semibold text-white mb-4 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-2 duration-300 h-20 overflow-hidden text-ellipsis"
+                style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;"
+              >
+                {news.title}
+              </h3>
+              <time
+                class="text-purple-400 inline-block transform group-hover:translate-x-2 transition-transform duration-300"
+                >{news.date}</time
+              >
+
+              <!-- Hover Arrow -->
+              <div
+                class="absolute right-0 bottom-0 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-purple-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      {/each}
+    </div>
+  </div>
+</section>
+
+<style>
+  .bg-grid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) translateX(0) scale(var(--scale));
+    }
+    50% {
+      transform: translateY(-20px) translateX(10px) scale(var(--scale));
+    }
+  }
+
+  .news-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+  }
+
+  .news-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+  }
+
+  .news-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      theme("colors.purple.400"),
+      transparent
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+
+  .news-card:hover::after {
+    transform: scaleX(1);
+  }
+</style>

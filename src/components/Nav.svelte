@@ -3,7 +3,7 @@
 
 <!-- Navigation -->
 <header
-  class="fixed top-0 left-0 right-0 z-50 bg-[#110a29] backdrop-blur-lg border-b border-white/10 shadow-lg transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 bg-[#110a29]/95 backdrop-blur-lg border-b border-white/5 shadow-lg transition-all duration-300"
 >
   <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     <a href="/" class="text-2xl font-bold text-white font-['Space_Grotesk']"
@@ -39,3 +39,19 @@
     </div>
   </nav>
 </header>
+
+<style>
+  header {
+    background-color: rgba(17, 10, 41, 0.95);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+
+  header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #110a29;
+    z-index: -1;
+  }
+</style>
