@@ -61,7 +61,6 @@
     // Stats Cards Animation
     const statsCards = document.querySelectorAll(".stats-card");
     gsap.set(statsCards, { opacity: 1 });
-
     gsap.from(statsCards, {
       duration: 1,
       y: 50,
@@ -245,6 +244,16 @@
 </div>
 
 <style>
+  /* Removed initial styles for animated elements */
+  /* 
+  .hero-title,
+  .hero-description,
+  .hero-buttons,
+  .stats-card {
+    opacity: 0;
+  }
+  */
+
   .particle {
     will-change: transform;
     transform-style: preserve-3d;
