@@ -3,7 +3,7 @@
 </script>
 
 <!-- Navigation -->
-<header class="fixed top-0 left-0 right-0 z-[9999] bg-transparent">
+<header class="fixed top-0 left-0 right-0 z-[9999] bg-[#110a29]">
   <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     <a href="/" class="text-2xl font-bold text-white font-['Space_Grotesk']"
       >DoxaV3</a
@@ -48,16 +48,10 @@
     left: 0;
     right: 0;
     /* Applied z-index via Tailwind */
-    /* Use gradient for background + line */
-    background-image: linear-gradient(
-      to bottom,
-      #110a29 calc(100% - 1px),
-      /* Header color until the last pixel */ rgba(0, 0, 0, 0.3) 100%
-        /* Line color for the last pixel */
-    );
-    background-color: #110a29; /* Fallback */
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    /* Removed gradient */
+    background-color: #110a29; /* Ensure solid background */
+    /* Add a visible box-shadow for separation */
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); /* More prominent shadow */
   }
 
   /* .separator-line style removed */
