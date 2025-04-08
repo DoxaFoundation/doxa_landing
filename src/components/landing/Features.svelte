@@ -58,7 +58,7 @@
     >
       Why Choose <span
         class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
-        >DoxaV3</span
+        >Doxa</span
       >?
     </h2>
 

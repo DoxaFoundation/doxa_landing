@@ -111,7 +111,7 @@
         Stay Updated
       </h2>
       <p class="text-xl text-gray-300 mb-12">
-        Get the latest updates about DoxaV3 and the Internet Computer ecosystem
+        Get the latest updates about Doxa and the Internet Computer ecosystem
       </p>
 
       <form

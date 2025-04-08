@@ -73,7 +73,7 @@
           Algorithmic Stability
         </h3>
         <p class="text-gray-300 text-lg mb-8">
-          DoxaV3 implements advanced algorithmic mechanisms to maintain price
+          Doxa implements advanced algorithmic mechanisms to maintain price
           stability. Our smart contracts automatically adjust supply based on
           market demand, ensuring a reliable 1:1 peg with USD.
         </p>
@@ -107,8 +107,8 @@
           Integration & Development
         </h3>
         <p class="text-gray-300 text-lg mb-8">
-          Built on Internet Computer, DoxaV3 offers seamless integration with
-          DeFi protocols. Our SDK and APIs make it easy to integrate stablecoin
+          Built on Internet Computer, Doxa offers seamless integration with DeFi
+          protocols. Our SDK and APIs make it easy to integrate stablecoin
           functionality into your dapps.
         </p>
         <a

@@ -6,7 +6,7 @@
 <header class="fixed top-0 left-0 right-0 z-[9999] bg-[#110a29]">
   <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     <a href="/" class="text-2xl font-bold text-white font-['Space_Grotesk']"
-      >DoxaV3</a
+      >Doxa</a
     >
 
     <!-- Mobile Menu Button -->

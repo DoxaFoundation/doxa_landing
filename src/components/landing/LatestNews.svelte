@@ -6,17 +6,17 @@
 
   const newsItems = [
     {
-      title: "DoxaV3: The First Algorithmic Stablecoin on Internet Computer",
+      title: "Doxa: The First Algorithmic Stablecoin on Internet Computer",
       date: "Jan 20, 2025",
       link: "/news/first-algorithmic-stablecoin",
     },
     {
-      title: "How DoxaV3 Maintains Price Stability Through Smart Contracts",
+      title: "How Doxa Maintains Price Stability Through Smart Contracts",
       date: "Jan 15, 2025",
       link: "/news/price-stability",
     },
     {
-      title: "DoxaV3 Partners with Major DeFi Protocols",
+      title: "Doxa Partners with Major DeFi Protocols",
       date: "Jan 10, 2025",
       link: "/news/defi-protocols",
     },

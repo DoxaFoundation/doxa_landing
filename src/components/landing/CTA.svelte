@@ -78,7 +78,7 @@
         Ready to Join the Future of Finance?
       </h2>
       <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-        Start using DoxaV3 today and experience the power of decentralized
+        Start using Doxa today and experience the power of decentralized
         stablecoins on the Internet Computer.
       </p>
       <div class="flex flex-col md:flex-row gap-6 justify-center">

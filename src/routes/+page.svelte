@@ -56,7 +56,7 @@
 </script>
 
 <svelte:head>
-  <title>DoxaV3 - Stablecoin on Internet Computer</title>
+  <title>Doxa - Stablecoin on Internet Computer</title>
   <meta
     name="description"
     content="A decentralized stablecoin built on Internet Computer"

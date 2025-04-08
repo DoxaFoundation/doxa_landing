@@ -139,7 +139,7 @@
         </h1>
 
         <p class="hero-description text-xl text-gray-300 mb-8">
-          DoxaV3 is a decentralized stablecoin built on the Internet Computer,
+          Doxa is a decentralized stablecoin built on the Internet Computer,
           offering stability, security, and true decentralization.
         </p>
 

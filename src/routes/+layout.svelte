@@ -76,7 +76,7 @@
 
       <!-- Copyright & Legal -->
       <div class="pt-8 border-t border-white/10">
-        <div class="text-gray-300 text-center">© 2025 DoxaV3</div>
+        <div class="text-gray-300 text-center">© 2025 Doxa</div>
         <div class="flex justify-center gap-8 mt-4">
           <a
             href="/terms"
