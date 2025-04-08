@@ -107,11 +107,13 @@
 
   <div class="relative container mx-auto px-6 max-w-4xl">
     <div class="newsletter-content text-center">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-        Stay Updated
-      </h2>
-      <p class="text-xl text-gray-300 mb-12">
-        Get the latest updates about Doxa and the Internet Computer ecosystem
+      <h2 class="text-3xl font-bold mb-4 text-white">Be Early. Be First.</h2>
+      <p class="text-xl mb-8 text-gray-300">
+        Don't just watch the future happen — help build it.
+      </p>
+      <p class="text-lg mb-8 text-gray-400">
+        Join thousands already signed up for early access, launch updates,
+        staking rewards, and more.
       </p>
 
       <form
@@ -134,7 +136,7 @@
               disabled={submitting || !!emailError}
               class="absolute right-2 top-2 px-6 py-2 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white rounded-full transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {submitting ? "Subscribing..." : "Subscribe"}
+              {submitting ? "Subscribing..." : "Join the Early List"}
             </button>
           </div>
 

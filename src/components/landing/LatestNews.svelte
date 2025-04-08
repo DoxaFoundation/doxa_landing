@@ -129,56 +129,31 @@
       </a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {#each newsItems as news, i}
-        <a href={news.link} class="news-card group flex">
-          <div
-            class="flex flex-col justify-between w-full p-8 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500 relative overflow-hidden"
-          >
-            <!-- Card Background Animation -->
-            <div
-              class="absolute inset-0 bg-gradient-to-br from-purple-600/0 to-pink-600/0 opacity-0 group-hover:opacity-20 transition-all duration-500"
-            ></div>
-            <div
-              class="absolute inset-0 bg-purple-500/10 translate-y-[-100%] group-hover:translate-y-0 transition-transform duration-500"
-            ></div>
-
-            <!-- Content -->
-            <div class="relative">
-              <h3
-                class="text-xl font-semibold text-white mb-4 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-2 duration-300 h-20 overflow-hidden text-ellipsis"
-                style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;"
-              >
-                {news.title}
-              </h3>
-              <time
-                class="text-purple-400 inline-block transform group-hover:translate-x-2 transition-transform duration-300"
-                >{news.date}</time
-              >
-
-              <!-- Hover Arrow -->
-              <div
-                class="absolute right-0 bottom-0 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-purple-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </a>
-      {/each}
+    <div class="news-content">
+      <h2 class="text-3xl font-bold mb-4 text-white">
+        Transparent. Auditable. Decentralized.
+      </h2>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-icon">🧾</div>
+          <h3 class="news-title">Real-Time Reserve Dashboards</h3>
+        </div>
+        <div class="news-card">
+          <div class="news-icon">🔐</div>
+          <h3 class="news-title">Regular Security Audits</h3>
+        </div>
+        <div class="news-card">
+          <div class="news-icon">📖</div>
+          <h3 class="news-title">Open-Source Smart Contracts</h3>
+        </div>
+        <div class="news-card">
+          <div class="news-icon">💼</div>
+          <h3 class="news-title">DAO Governance via SNS</h3>
+        </div>
+      </div>
+      <p class="text-lg mt-8 text-gray-400">
+        You deserve to see what backs your money. With Doxa, you do.
+      </p>
     </div>
   </div>
 </section>

@@ -2,215 +2,125 @@
   import { onMount } from "svelte";
 
   export let gsap: any;
-  export let ScrollTrigger: any;
 
   onMount(() => {
     initAnimations();
   });
 
   function initAnimations() {
-    // Why Choose Section Animation
-    const whyChooseTitle = document.querySelector(".why-choose-title");
-    if (whyChooseTitle) {
-      gsap.from(whyChooseTitle, {
-        scrollTrigger: {
-          trigger: whyChooseTitle,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-        duration: 1,
-        y: 50,
-        opacity: 0,
-        ease: "power3.out",
-      });
-    }
-
-    // Enhanced Feature Cards Animation with Stagger
     const featureCards = document.querySelectorAll(".feature-card");
-    featureCards.forEach((card, index) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-        },
-        duration: 1.2,
-        y: 100,
-        x: index % 2 === 0 ? -50 : 50,
-        opacity: 0,
-        rotation: index % 2 === 0 ? -5 : 5,
-        delay: index * 0.2,
-        ease: "power3.out",
-      });
+    gsap.from(featureCards, {
+      scrollTrigger: {
+        trigger: ".features-grid",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+      duration: 0.8,
+      y: 50,
+      opacity: 0,
+      stagger: 0.15,
+      ease: "power3.out",
+    });
+
+    // Animate intro/outro/subheading text
+    gsap.from(".intro-text, .features-subheading, .outro-text", {
+      scrollTrigger: {
+        trigger: ".intro-text",
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      },
+      duration: 1,
+      y: 30,
+      opacity: 0,
+      ease: "power3.out",
+      stagger: 0.2,
     });
   }
 </script>
 
-<section class="py-32 relative overflow-hidden">
-  <div class="absolute inset-0 bg-[#0a0118]">
-    <div class="absolute inset-0 bg-grid opacity-10"></div>
-  </div>
+<section
+  class="py-24 md:py-32 bg-gradient-to-b from-[#100a1f] to-[#0a0118] text-white relative overflow-hidden"
+>
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="text-center mb-12 md:mb-16">
+      <p
+        class="intro-text text-xl md:text-2xl text-gray-400 mb-4 max-w-3xl mx-auto font-light leading-relaxed"
+      >
+        No banks. No middlemen. No central point of failure.
+      </p>
+      <p
+        class="intro-text text-xl md:text-2xl text-gray-300 mb-16 max-w-3xl mx-auto font-light leading-relaxed"
+      >
+        Just programmable money—backed, secure, fast.
+      </p>
+      <h2
+        class="features-subheading text-3xl md:text-4xl font-bold text-[#e4b7ff] mb-16 inline-flex items-center gap-3"
+      >
+        <span class="text-4xl">🚀</span> Built for Real Impact
+      </h2>
+    </div>
 
-  <div class="relative container mx-auto px-6">
-    <h2
-      class="why-choose-title text-4xl md:text-5xl font-bold text-center text-white mb-16"
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 features-grid mb-20"
     >
-      Why Choose <span
-        class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
-        >Doxa</span
-      >?
-    </h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Security -->
-      <div class="feature-card group">
-        <div
-          class="relative p-8 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500"
-        >
-          <div
-            class="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          ></div>
-          <div class="relative">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-6 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                />
-              </svg>
-            </div>
-            <h3
-              class="text-xl font-semibold text-white mb-4 group-hover:text-purple-400 transition-colors"
-            >
-              Enterprise-Grade Security
-            </h3>
-            <p
-              class="text-gray-400 group-hover:text-gray-300 transition-colors"
-            >
-              Built on Internet Computer with advanced cryptography and security
-              measures to protect your assets.
-            </p>
-          </div>
-        </div>
+      <!-- Feature Cards (5 total) -->
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3 class="feature-title">Cross-Border Remittances</h3>
+        <p class="feature-description">
+          Send money instantly, without the fees.
+        </p>
       </div>
-
-      <!-- Stability -->
-      <div class="feature-card group">
-        <div
-          class="relative p-8 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500"
-        >
-          <div
-            class="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          ></div>
-          <div class="relative">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-6 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                />
-              </svg>
-            </div>
-            <h3
-              class="text-xl font-semibold text-white mb-4 group-hover:text-purple-400 transition-colors"
-            >
-              Price Stability
-            </h3>
-            <p
-              class="text-gray-400 group-hover:text-gray-300 transition-colors"
-            >
-              Advanced algorithmic mechanisms ensure stable value pegging and
-              minimal volatility.
-            </p>
-          </div>
-        </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛒</div>
+        <h3 class="feature-title">E-Commerce Ready</h3>
+        <p class="feature-description">
+          Stable payments for global businesses.
+        </p>
       </div>
-
-      <!-- Decentralization -->
-      <div class="feature-card group">
-        <div
-          class="relative p-8 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500"
-        >
-          <div
-            class="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          ></div>
-          <div class="relative">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-6 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                />
-              </svg>
-            </div>
-            <h3
-              class="text-xl font-semibold text-white mb-4 group-hover:text-purple-400 transition-colors"
-            >
-              True Decentralization
-            </h3>
-            <p
-              class="text-gray-400 group-hover:text-gray-300 transition-colors"
-            >
-              Fully decentralized governance and operations with no central
-              points of failure.
-            </p>
-          </div>
-        </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3 class="feature-title">Microtransactions</h3>
+        <p class="feature-description">Enable tiny payments for big ideas.</p>
       </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚙️</div>
+        <h3 class="feature-title">dApp Integration</h3>
+        <p class="feature-description">Plug Doxa into any Web3 app.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💱</div>
+        <h3 class="feature-title">Trading</h3>
+        <p class="feature-description">
+          Use USDx as a reliable base asset across chains.
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center mt-16">
+      <p
+        class="outro-text text-2xl md:text-3xl font-semibold text-purple-400 tracking-wide"
+      >
+        Your money. Your way. Anywhere.
+      </p>
     </div>
   </div>
 </section>
 
 <style>
-  .bg-grid {
-    background-size: 40px 40px;
-    background-image: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.1) 1px,
-        transparent 1px
-      ),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  }
-
   .feature-card {
-    transform: translateY(0);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform, opacity;
+    @apply p-8 rounded-2xl bg-purple-900/30 backdrop-blur-lg border border-purple-700/40 transition-all duration-300 text-center transform hover:-translate-y-2 hover:bg-purple-900/50 hover:border-purple-600 shadow-lg hover:shadow-purple-500/20;
   }
 
-  .feature-card:hover {
-    transform: translateY(-10px) rotate(2deg);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+  .feature-icon {
+    @apply text-5xl mb-5 inline-block text-purple-400;
+  }
+
+  .feature-title {
+    @apply text-xl font-semibold text-white mb-4;
+  }
+
+  .feature-description {
+    @apply text-gray-300/90 text-base leading-relaxed;
   }
 </style>

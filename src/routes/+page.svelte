@@ -5,8 +5,9 @@
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import Hero from "../components/landing/Hero.svelte";
   import Features from "../components/landing/Features.svelte";
-  import LatestNews from "../components/landing/LatestNews.svelte";
-  import Integration from "../components/landing/Integration.svelte";
+  import HowItWorks from "../components/landing/HowItWorks.svelte";
+  import Roadmap from "../components/landing/Roadmap.svelte";
+  import Testimonials from "../components/landing/Testimonials.svelte";
   import Newsletter from "../components/landing/Newsletter.svelte";
   import CTA from "../components/landing/CTA.svelte";
 
@@ -56,10 +57,10 @@
 </script>
 
 <svelte:head>
-  <title>Doxa - Stablecoin on Internet Computer</title>
+  <title>Doxa - The Future of Currency</title>
   <meta
     name="description"
-    content="A decentralized stablecoin built on Internet Computer"
+    content="Doxa - Create, own, and earn with a revolutionary multi-stablecoin platform."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
@@ -120,10 +121,11 @@
       <div class="relative z-10">
         <Hero {gsap} {ScrollTrigger} />
         <Features {gsap} {ScrollTrigger} />
-        <LatestNews {gsap} {ScrollTrigger} />
-        <Integration {gsap} {ScrollTrigger} />
-        <Newsletter {gsap} {ScrollTrigger} />
+        <HowItWorks {gsap} {ScrollTrigger} />
+        <Roadmap {gsap} {ScrollTrigger} />
+        <Testimonials {gsap} {ScrollTrigger} />
         <CTA {gsap} {ScrollTrigger} />
+        <Newsletter {gsap} {ScrollTrigger} />
       </div>
     {/if}
   </div>

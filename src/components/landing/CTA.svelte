@@ -74,37 +74,22 @@
 
   <div class="relative container mx-auto px-6 text-center">
     <div class="cta-content">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
-        Ready to Join the Future of Finance?
+      <h2 class="text-4xl font-bold mb-6 text-white">
+        Be an Early Minter. Be a Pioneer.
       </h2>
-      <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-        Start using Doxa today and experience the power of decentralized
-        stablecoins on the Internet Computer.
+      <p class="text-xl mb-8 text-gray-300">
+        This is your chance to help shape the next generation of global finance.
       </p>
-      <div class="flex flex-col md:flex-row gap-6 justify-center">
-        <a
-          href="#"
-          class="inline-flex items-center justify-center px-8 py-3 bg-white text-purple-900 rounded-full font-medium hover:bg-gray-100 transition-colors group"
-        >
-          Launch App
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clip-rule="evenodd"
-            />
-          </svg>
+      <div
+        class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6 justify-center cta-buttons"
+      >
+        <a href="#" class="btn-primary group">
+          Launch Doxa Now
+          <span class="btn-arrow group-hover:translate-x-1">→</span>
         </a>
-        <a
-          href="#"
-          class="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white rounded-full font-medium hover:bg-white hover:text-purple-900 transition-colors"
-        >
-          Read Documentation
+        <a href="#" class="btn-secondary group">
+          Learn More in Docs
+          <span class="btn-arrow group-hover:translate-x-1">→</span>
         </a>
       </div>
     </div>
@@ -158,5 +143,21 @@
 
   .inline-flex:hover::after {
     transform: translateX(100%);
+  }
+
+  .cta-buttons a {
+    @apply inline-flex items-center justify-center px-8 py-3 rounded-full font-medium transition-all duration-300 transform;
+  }
+
+  .btn-primary {
+    @apply bg-white text-purple-900 hover:bg-gray-100 hover:scale-105 hover:-rotate-1;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-white text-white hover:bg-white hover:text-purple-900 hover:scale-105 hover:rotate-1;
+  }
+
+  .btn-arrow {
+    @apply ml-2 transition-transform duration-300;
   }
 </style>
