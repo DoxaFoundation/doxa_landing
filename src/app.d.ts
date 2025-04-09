@@ -1,13 +1,19 @@
-// See https://svelte.dev/docs/kit/types#app.d.ts
+/// <reference types="@sveltejs/kit" />
+
+// See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare global {
-	namespace App {
-		// interface Error {}
-		// interface Locals {}
-		// interface PageData {}
-		// interface PageState {}
-		// interface Platform {}
-	}
+  namespace App {
+    // interface Error {}
+    // interface Locals {}
+    // interface PageData {}
+    // interface Platform {}
+  }
+
+  interface Window {
+    gsap: any;
+    ScrollTrigger: any;
+  }
 }
 
 export {};

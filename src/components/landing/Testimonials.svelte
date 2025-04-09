@@ -5,10 +5,14 @@
   export let ScrollTrigger: any;
 
   onMount(() => {
-    initAnimations();
+    if (gsap && ScrollTrigger) {
+      initAnimations();
+    }
   });
 
   function initAnimations() {
+    if (!gsap || !ScrollTrigger) return;
+
     const testimonials = document.querySelectorAll(".testimonial-card");
     testimonials.forEach((card, index) => {
       gsap.from(card, {
@@ -28,18 +32,18 @@
 </script>
 
 <section class="py-32 relative overflow-hidden">
-  <div class="absolute inset-0 bg-[#0a0118]">
+  <div class="absolute inset-0 bg-gray-900">
     <div class="absolute inset-0 bg-grid opacity-10"></div>
   </div>
 
   <div class="relative container mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16">
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-50 mb-16">
       What Our Users Say
     </h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="testimonial-card relative">
-        <div class="quote-icon">“</div>
+        <div class="quote-icon">"</div>
         <div class="testimonial-content">
           <p class="testimonial-text">
             "Doxa has revolutionized how I handle cross-border payments. The
@@ -56,7 +60,7 @@
       </div>
 
       <div class="testimonial-card relative">
-        <div class="quote-icon">“</div>
+        <div class="quote-icon">"</div>
         <div class="testimonial-content">
           <p class="testimonial-text">
             "As a developer, I love how easy it is to integrate Doxa into my
@@ -73,7 +77,7 @@
       </div>
 
       <div class="testimonial-card relative">
-        <div class="quote-icon">“</div>
+        <div class="quote-icon">"</div>
         <div class="testimonial-content">
           <p class="testimonial-text">
             "The transparency and security of Doxa give me peace of mind. I can
@@ -94,11 +98,11 @@
 
 <style>
   .testimonial-card {
-    @apply p-8 pt-12 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500;
+    @apply p-8 pt-12 rounded-2xl bg-gray-800/20 backdrop-blur-xl border border-gray-700/50 hover:border-gray-500 transition-all duration-500;
   }
 
   .quote-icon {
-    @apply absolute top-4 left-4 text-6xl text-purple-500/30 font-serif;
+    @apply absolute top-4 left-4 text-6xl text-gray-600/30 font-serif;
   }
 
   .testimonial-text {
@@ -110,11 +114,11 @@
   }
 
   .author-avatar {
-    @apply w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-xl;
+    @apply w-12 h-12 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center text-white text-xl;
   }
 
   .author-name {
-    @apply text-white font-semibold;
+    @apply text-gray-50 font-semibold;
   }
 
   .author-role {

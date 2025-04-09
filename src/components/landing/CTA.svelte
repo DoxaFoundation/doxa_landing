@@ -5,10 +5,14 @@
   export let ScrollTrigger: any;
 
   onMount(() => {
-    initAnimations();
+    if (gsap && ScrollTrigger) {
+      initAnimations();
+    }
   });
 
   function initAnimations() {
+    if (!gsap || !ScrollTrigger) return;
+
     // CTA Section Enhanced Animation
     const ctaContent = document.querySelector(".cta-content");
     if (ctaContent) {
@@ -59,22 +63,25 @@
 <div class="relative py-20 overflow-hidden">
   <!-- Gradient Background -->
   <div
-    class="absolute inset-0 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 opacity-90"
+    class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 opacity-90"
   ></div>
 
   <!-- Animated Circles -->
   <div class="absolute inset-0">
     <div
-      class="cta-circle absolute w-96 h-96 bg-purple-500/20 rounded-full -top-48 -left-48 blur-3xl"
+      class="cta-circle absolute w-96 h-96 bg-gray-600/20 rounded-full -top-48 -left-48 blur-3xl"
     ></div>
     <div
-      class="cta-circle absolute w-96 h-96 bg-purple-700/20 rounded-full -bottom-48 -right-48 blur-3xl"
+      class="cta-circle absolute w-96 h-96 bg-gray-700/20 rounded-full -bottom-48 -right-48 blur-3xl"
     ></div>
   </div>
 
   <div class="relative container mx-auto px-6 text-center">
     <div class="cta-content">
-      <h2 class="text-4xl font-bold mb-6 text-white">
+      <div class="flex justify-center mb-6">
+        <img src="/images/DOXA.svg" alt="Doxa Logo" class="h-16" />
+      </div>
+      <h2 class="text-4xl font-bold mb-6 text-gray-50">
         Be an Early Minter. Be a Pioneer.
       </h2>
       <p class="text-xl mb-8 text-gray-300">
@@ -134,7 +141,7 @@
     background: linear-gradient(
       to right,
       transparent,
-      rgba(255, 255, 255, 0.1),
+      rgba(204, 204, 204, 0.1),
       transparent
     );
     transform: translateX(-100%);
@@ -150,11 +157,11 @@
   }
 
   .btn-primary {
-    @apply bg-white text-purple-900 hover:bg-gray-100 hover:scale-105 hover:-rotate-1;
+    @apply bg-gray-200 text-gray-900 hover:bg-gray-100 hover:scale-105 hover:-rotate-1;
   }
 
   .btn-secondary {
-    @apply border-2 border-white text-white hover:bg-white hover:text-purple-900 hover:scale-105 hover:rotate-1;
+    @apply border-2 border-gray-400 text-gray-50 hover:bg-gray-700 hover:text-gray-50 hover:scale-105 hover:rotate-1;
   }
 
   .btn-arrow {

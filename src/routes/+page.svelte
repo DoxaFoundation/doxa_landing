@@ -1,8 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { browser } from "$app/environment";
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
   import Hero from "../components/landing/Hero.svelte";
   import Features from "../components/landing/Features.svelte";
   import HowItWorks from "../components/landing/HowItWorks.svelte";
@@ -12,13 +10,26 @@
   import CTA from "../components/landing/CTA.svelte";
 
   let componentsReady = false;
+  let gsap: any;
+  let ScrollTrigger: any;
 
   onMount(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    componentsReady = true;
+    if (browser) {
+      // Access GSAP from the global window object
+      gsap = window.gsap;
+      ScrollTrigger = window.ScrollTrigger;
+
+      // Register the ScrollTrigger plugin
+      gsap.registerPlugin(ScrollTrigger);
+
+      componentsReady = true;
+      initBackgroundAnimations();
+    }
   });
 
   function initBackgroundAnimations() {
+    if (!gsap) return;
+
     // Animated grid background
     gsap.to(".grid-background", {
       backgroundPosition: "40px 40px",
@@ -74,17 +85,17 @@
   />
 </svelte:head>
 
-<div class="min-h-screen bg-[#0a0118]">
+<div class="min-h-screen bg-gray-900">
   <div class="relative min-h-screen overflow-hidden">
     <!-- Gradient Overlay -->
     <div
-      class="absolute inset-0 bg-gradient-to-br from-purple-900/50 to-transparent z-0"
+      class="absolute inset-0 bg-gradient-to-br from-gray-800/50 to-transparent z-0"
     ></div>
 
     <!-- Grid Background -->
     <div
       class="grid-background absolute inset-0 z-0 opacity-50 pointer-events-none"
-      style="background-size: 40px 40px; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);"
+      style="background-size: 40px 40px; background-image: linear-gradient(to right, rgba(204, 204, 204, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(204, 204, 204, 0.1) 1px, transparent 1px);"
     ></div>
 
     <!-- Background Particles -->
@@ -92,7 +103,7 @@
       <div
         class="particle absolute h-2 w-2 rounded-full"
         style="
-          background: {['#FF4D4D', '#4DA6FF', '#4DFFB7'][i % 3]};
+          background: {['#666666', '#999999', '#4d4d4d'][i % 3]};
           left: {Math.random() * 100}%;
           top: {Math.random() * 100}%;
           filter: blur(1px);
@@ -106,7 +117,7 @@
       <div
         class="shooting-star absolute h-px w-20 opacity-20"
         style="
-          background: linear-gradient(90deg, {['#FF4D4D', '#4DA6FF', '#4DFFB7'][
+          background: linear-gradient(90deg, {['#666666', '#999999', '#4d4d4d'][
           i % 3
         ]}, transparent);
           left: {-Math.random() * 100}%;
@@ -137,25 +148,25 @@
   }
 
   :global(body) {
-    @apply text-gray-900;
-    background: #0a0118;
+    @apply text-gray-200;
+    background: #000000;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
   }
 
   :global(#svelte) {
-    background: #0a0118;
+    background: #000000;
   }
 
   .grid-background {
     background-size: 40px 40px;
     background-image: linear-gradient(
         to right,
-        rgba(255, 255, 255, 0.1) 1px,
+        rgba(204, 204, 204, 0.1) 1px,
         transparent 1px
       ),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      linear-gradient(to bottom, rgba(204, 204, 204, 0.1) 1px, transparent 1px);
     background-position: 0 0;
   }
 
@@ -194,10 +205,10 @@
     background-size: 40px 40px;
     background-image: linear-gradient(
         to right,
-        rgba(255, 255, 255, 0.1) 1px,
+        rgba(204, 204, 204, 0.1) 1px,
         transparent 1px
       ),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      linear-gradient(to bottom, rgba(204, 204, 204, 0.1) 1px, transparent 1px);
   }
 
   @keyframes shooting {
@@ -293,7 +304,7 @@
     background: linear-gradient(
       to right,
       transparent,
-      theme("colors.purple.400"),
+      theme("colors.gray.400"),
       transparent
     );
     transform: scaleX(0);
@@ -328,7 +339,7 @@
     background: linear-gradient(
       to right,
       transparent,
-      theme("colors.purple.400"),
+      theme("colors.gray.400"),
       transparent
     );
     transform: scaleX(0);

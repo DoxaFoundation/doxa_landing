@@ -5,10 +5,14 @@
   export let ScrollTrigger: any;
 
   onMount(() => {
-    initAnimations();
+    if (gsap && ScrollTrigger) {
+      initAnimations();
+    }
   });
 
   function initAnimations() {
+    if (!gsap || !ScrollTrigger) return;
+
     const roadmapItems = document.querySelectorAll(".roadmap-item");
     roadmapItems.forEach((item, index) => {
       gsap.from(item, {
@@ -28,19 +32,19 @@
 </script>
 
 <section class="py-32 relative overflow-hidden">
-  <div class="absolute inset-0 bg-[#0a0118]">
+  <div class="absolute inset-0 bg-gray-900">
     <div class="absolute inset-0 bg-grid opacity-10"></div>
   </div>
 
   <div class="relative container mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16">
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-50 mb-16">
       Roadmap
     </h2>
 
     <div class="max-w-4xl mx-auto relative">
       <!-- Connecting Line -->
       <div
-        class="absolute left-6 top-6 bottom-6 w-1 bg-purple-700/50 rounded-full hidden md:block"
+        class="absolute left-6 top-6 bottom-6 w-1 bg-gray-700/50 rounded-full hidden md:block"
       ></div>
 
       <div class="roadmap-item mb-12 relative">
@@ -90,11 +94,11 @@
 
 <style>
   .roadmap-phase {
-    @apply flex items-start gap-6 p-6 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500 md:ml-16;
+    @apply flex items-start gap-6 p-6 rounded-2xl bg-gray-800/20 backdrop-blur-xl border border-gray-700/50 hover:border-gray-600 transition-all duration-500 md:ml-16;
   }
 
   .phase-dot {
-    @apply w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0 absolute left-0 top-1/2 transform -translate-y-1/2 z-10 ring-4 ring-[#0a0118];
+    @apply w-12 h-12 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center text-gray-50 text-xl font-bold flex-shrink-0 absolute left-0 top-1/2 transform -translate-y-1/2 z-10 ring-4 ring-gray-900;
   }
 
   .phase-content {
@@ -102,7 +106,7 @@
   }
 
   .phase-title {
-    @apply text-xl font-semibold text-white mb-2;
+    @apply text-xl font-semibold text-gray-50 mb-2;
   }
 
   .phase-description {
