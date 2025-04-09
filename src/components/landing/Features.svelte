@@ -60,7 +60,7 @@
         </div>
       </div>
       <div class="intro-text bg-primary-900/80 rounded-xl p-4 mb-16 max-w-3xl mx-auto transform hover:translate-y-[-5px] transition-all duration-500 border border-primary-700/20">
-        <span class="block text-center text-xl md:text-2xl text-primary-100 font-light">Just programmable money</span>
+        <span class="block text-center text-xl md:text-2xl text-primary-100 font-light">Just programmable money — backed, secure, fast</span>
         <div class="flex justify-center gap-4 mt-2">
           <span class="text-primary-50 font-medium px-3 py-1 bg-primary-800/90 rounded-md animate-pulse">backed</span>
           <span class="text-primary-50 font-medium px-3 py-1 bg-primary-800/90 rounded-md animate-pulse" style="animation-delay: 0.5s;">secure</span>
