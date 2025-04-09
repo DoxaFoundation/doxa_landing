@@ -101,17 +101,17 @@
 </script>
 
 <section class="py-32 relative overflow-hidden">
-  <div
-    class="newsletter-bg absolute inset-0 bg-gradient-to-br from-purple-900 via-[#1E0447] to-purple-900 opacity-90"
-  ></div>
+  <div class="newsletter-bg absolute inset-0 bg-primary-800 opacity-90"></div>
 
   <div class="relative container mx-auto px-6 max-w-4xl">
     <div class="newsletter-content text-center">
-      <h2 class="text-3xl font-bold mb-4 text-white">Be Early. Be First.</h2>
-      <p class="text-xl mb-8 text-gray-300">
+      <h2 class="text-3xl font-bold mb-4 text-primary-100">
+        Be Early. Be First.
+      </h2>
+      <p class="text-xl mb-8 text-primary-300">
         Don't just watch the future happen — help build it.
       </p>
-      <p class="text-lg mb-8 text-gray-400">
+      <p class="text-lg mb-8 text-primary-400">
         Join thousands already signed up for early access, launch updates,
         staking rewards, and more.
       </p>
@@ -127,14 +127,14 @@
               placeholder="Enter your email"
               bind:value={email}
               on:input={handleEmailChange}
-              class="w-full px-6 py-4 rounded-full bg-purple-900/50 backdrop-blur-xl border border-purple-700/50 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors {emailError
+              class="w-full px-6 py-4 rounded-full bg-primary-700/50 backdrop-blur-xl border border-primary-600/50 text-primary-100 placeholder-primary-400 focus:outline-none focus:border-primary-400 transition-colors {emailError
                 ? 'border-red-500'
                 : ''}"
             />
             <button
               type="submit"
               disabled={submitting || !!emailError}
-              class="absolute right-2 top-2 px-6 py-2 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white rounded-full transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+              class="absolute right-2 top-2 px-6 py-2 bg-primary-500 hover:bg-primary-400 text-primary-100 rounded-full transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {submitting ? "Subscribing..." : "Join the Early List"}
             </button>
@@ -146,7 +146,7 @@
 
           {#if submitStatus}
             <div
-              class="text-white bg-purple-900/50 backdrop-blur-xl border border-purple-700/50 px-6 py-3 rounded-full"
+              class="text-primary-100 bg-primary-700/50 backdrop-blur-xl border border-primary-600/50 px-6 py-3 rounded-full"
             >
               {submitStatus.message}
             </div>
@@ -159,28 +159,22 @@
 
 <style>
   .newsletter-bg {
-    background-size: 200% 200%;
-    animation: gradientMove 15s linear infinite;
+    /* Removed animation properties */
+    /* background-size: 200% 200%; */
+    /* animation: gradientMove 15s linear infinite; */
   }
 
-  @keyframes gradientMove {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
+  /* Removed gradientMove keyframes */
+  /* @keyframes gradientMove { ... } */
 
   input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    /* Use primary color */
+    color: theme("colors.primary.400 / 70%");
   }
 
   input:focus {
-    box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.4);
+    /* Use primary color for shadow */
+    box-shadow: 0 0 0 2px theme("colors.primary.400 / 40%");
   }
 
   .newsletter-form {

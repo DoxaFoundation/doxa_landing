@@ -28,12 +28,14 @@
 </script>
 
 <section class="py-32 relative overflow-hidden">
-  <div class="absolute inset-0 bg-[#0a0118]">
+  <div class="absolute inset-0 bg-primary-900">
     <div class="absolute inset-0 bg-grid opacity-10"></div>
   </div>
 
   <div class="relative container mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16">
+    <h2
+      class="text-4xl md:text-5xl font-bold text-center text-primary-100 mb-16"
+    >
       What Our Users Say
     </h2>
 
@@ -94,15 +96,15 @@
 
 <style>
   .testimonial-card {
-    @apply p-8 pt-12 rounded-2xl bg-purple-900/20 backdrop-blur-xl border border-purple-700/50 hover:border-purple-500 transition-all duration-500;
+    @apply p-8 pt-12 rounded-2xl bg-primary-800/30 backdrop-blur-xl border border-primary-600/50 hover:border-primary-400 transition-all duration-500;
   }
 
   .quote-icon {
-    @apply absolute top-4 left-4 text-6xl text-purple-500/30 font-serif;
+    @apply absolute top-4 left-4 text-6xl text-primary-500/30 font-serif;
   }
 
   .testimonial-text {
-    @apply text-gray-300 mb-6;
+    @apply text-primary-200 mb-6;
   }
 
   .testimonial-author {
@@ -110,14 +112,14 @@
   }
 
   .author-avatar {
-    @apply w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-xl;
+    @apply w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center text-primary-100 text-xl;
   }
 
   .author-name {
-    @apply text-white font-semibold;
+    @apply text-primary-100 font-semibold;
   }
 
   .author-role {
-    @apply text-gray-400 text-sm;
+    @apply text-primary-400 text-sm;
   }
 </style>

@@ -4,6 +4,25 @@
   export let gsap: any;
   export let ScrollTrigger: any;
 
+  // Helper map for background element colors
+  const bgElColors: Record<number, string> = {
+    500: "#666666",
+    600: "#4d4d4d",
+    700: "#333333",
+  };
+
+  // Function to generate rgba background gradient string from hex
+  function getBgElGradient(index: number): string {
+    const shade = ((index % 3) + 5) * 100; // 500, 600, 700
+    const hex = bgElColors[shade];
+    if (!hex) return "none"; // Fallback
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    // Generate radial gradient with 10% opacity color
+    return `radial-gradient(circle, rgba(${r}, ${g}, ${b}, 0.1) 0%, transparent 70%)`;
+  }
+
   const newsItems = [
     {
       title: "Doxa: The First Algorithmic Stablecoin on Internet Computer",
@@ -70,18 +89,14 @@
 </script>
 
 <section class="py-32 relative overflow-hidden">
-  <div class="absolute inset-0 bg-[#0a0118]">
+  <div class="absolute inset-0 bg-primary-900">
     <div class="absolute inset-0 bg-grid opacity-10"></div>
-    <!-- Animated Background Elements -->
+    <!-- Animated Background Elements (Grayscale) -->
     {#each Array(10) as _, i}
       <div
         class="absolute h-32 w-32 rounded-full"
         style="
-          background: radial-gradient(circle, {[
-          'rgba(147,51,234,0.1)',
-          'rgba(236,72,153,0.1)',
-          'rgba(99,102,241,0.1)',
-        ][i % 3]} 0%, transparent 70%);
+          background: {getBgElGradient(i)};
           left: {Math.random() * 100}%;
           top: {Math.random() * 100}%;
           transform: scale({0.5 + Math.random()});
@@ -94,19 +109,19 @@
   <div class="relative container mx-auto px-6">
     <div class="flex justify-between items-center mb-16">
       <h2
-        class="news-section-title text-4xl md:text-5xl font-bold text-white relative"
+        class="news-section-title text-4xl md:text-5xl font-bold text-primary-100 relative"
       >
         Latest <span
-          class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
+          class="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-primary-100"
           >Updates</span
         >
         <div
-          class="absolute -bottom-2 left-0 w-1/3 h-1 bg-gradient-to-r from-purple-400 to-transparent"
+          class="absolute -bottom-2 left-0 w-1/3 h-1 bg-gradient-to-r from-primary-400 to-transparent"
         ></div>
       </h2>
       <a
         href="/news"
-        class="group flex items-center gap-2 text-white hover:text-purple-400 transition-colors relative overflow-hidden"
+        class="group flex items-center gap-2 text-primary-100 hover:text-primary-300 transition-colors relative overflow-hidden"
       >
         <span class="relative z-10">View All</span>
         <svg
@@ -124,34 +139,52 @@
           />
         </svg>
         <div
-          class="absolute inset-0 bg-purple-500/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300"
+          class="absolute inset-0 bg-primary-500/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300"
         ></div>
       </a>
     </div>
 
     <div class="news-content">
-      <h2 class="text-3xl font-bold mb-4 text-white">
+      <h2 class="text-3xl font-bold mb-4 text-primary-100">
         Transparent. Auditable. Decentralized.
       </h2>
-      <div class="news-grid">
-        <div class="news-card">
-          <div class="news-icon">🧾</div>
-          <h3 class="news-title">Real-Time Reserve Dashboards</h3>
+      <div
+        class="news-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+      >
+        <div
+          class="news-card p-6 rounded-lg bg-primary-800/40 border border-primary-600/50"
+        >
+          <div class="news-icon text-3xl mb-3 text-primary-300">🧾</div>
+          <h3 class="news-title text-lg font-medium text-primary-100">
+            Real-Time Reserve Dashboards
+          </h3>
         </div>
-        <div class="news-card">
-          <div class="news-icon">🔐</div>
-          <h3 class="news-title">Regular Security Audits</h3>
+        <div
+          class="news-card p-6 rounded-lg bg-primary-800/40 border border-primary-600/50"
+        >
+          <div class="news-icon text-3xl mb-3 text-primary-300">🔐</div>
+          <h3 class="news-title text-lg font-medium text-primary-100">
+            Regular Security Audits
+          </h3>
         </div>
-        <div class="news-card">
-          <div class="news-icon">📖</div>
-          <h3 class="news-title">Open-Source Smart Contracts</h3>
+        <div
+          class="news-card p-6 rounded-lg bg-primary-800/40 border border-primary-600/50"
+        >
+          <div class="news-icon text-3xl mb-3 text-primary-300">📖</div>
+          <h3 class="news-title text-lg font-medium text-primary-100">
+            Open-Source Smart Contracts
+          </h3>
         </div>
-        <div class="news-card">
-          <div class="news-icon">💼</div>
-          <h3 class="news-title">DAO Governance via SNS</h3>
+        <div
+          class="news-card p-6 rounded-lg bg-primary-800/40 border border-primary-600/50"
+        >
+          <div class="news-icon text-3xl mb-3 text-primary-300">💼</div>
+          <h3 class="news-title text-lg font-medium text-primary-100">
+            DAO Governance via SNS
+          </h3>
         </div>
       </div>
-      <p class="text-lg mt-8 text-gray-400">
+      <p class="text-lg mt-8 text-primary-400">
         You deserve to see what backs your money. With Doxa, you do.
       </p>
     </div>
@@ -163,10 +196,14 @@
     background-size: 40px 40px;
     background-image: linear-gradient(
         to right,
-        rgba(255, 255, 255, 0.1) 1px,
+        theme("colors.primary.700 / 10%") 1px,
         transparent 1px
       ),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      linear-gradient(
+        to bottom,
+        theme("colors.primary.700 / 10%") 1px,
+        transparent 1px
+      );
   }
 
   @keyframes float {
@@ -186,7 +223,7 @@
 
   .news-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px -15px theme("colors.primary.900 / 30%");
   }
 
   .news-card::after {
@@ -199,7 +236,7 @@
     background: linear-gradient(
       to right,
       transparent,
-      theme("colors.purple.400"),
+      theme("colors.primary.400"),
       transparent
     );
     transform: scaleX(0);

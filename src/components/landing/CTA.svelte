@@ -57,27 +57,25 @@
 </script>
 
 <div class="relative py-20 overflow-hidden">
-  <!-- Gradient Background -->
-  <div
-    class="absolute inset-0 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 opacity-90"
-  ></div>
+  <!-- Solid Primary Background -->
+  <div class="absolute inset-0 bg-primary-800 opacity-90"></div>
 
-  <!-- Animated Circles -->
+  <!-- Grayscale Animated Circles -->
   <div class="absolute inset-0">
     <div
-      class="cta-circle absolute w-96 h-96 bg-purple-500/20 rounded-full -top-48 -left-48 blur-3xl"
+      class="cta-circle absolute w-96 h-96 bg-primary-500/20 rounded-full -top-48 -left-48 blur-3xl"
     ></div>
     <div
-      class="cta-circle absolute w-96 h-96 bg-purple-700/20 rounded-full -bottom-48 -right-48 blur-3xl"
+      class="cta-circle absolute w-96 h-96 bg-primary-700/20 rounded-full -bottom-48 -right-48 blur-3xl"
     ></div>
   </div>
 
   <div class="relative container mx-auto px-6 text-center">
     <div class="cta-content">
-      <h2 class="text-4xl font-bold mb-6 text-white">
+      <h2 class="text-4xl font-bold mb-6 text-primary-100">
         Be an Early Minter. Be a Pioneer.
       </h2>
-      <p class="text-xl mb-8 text-gray-300">
+      <p class="text-xl mb-8 text-primary-300">
         This is your chance to help shape the next generation of global finance.
       </p>
       <div
@@ -150,11 +148,11 @@
   }
 
   .btn-primary {
-    @apply bg-white text-purple-900 hover:bg-gray-100 hover:scale-105 hover:-rotate-1;
+    @apply bg-primary-100 text-primary-900 hover:bg-primary-200 hover:scale-105 hover:-rotate-1;
   }
 
   .btn-secondary {
-    @apply border-2 border-white text-white hover:bg-white hover:text-purple-900 hover:scale-105 hover:rotate-1;
+    @apply border-2 border-primary-100 text-primary-100 hover:bg-primary-100 hover:text-primary-900 hover:scale-105 hover:rotate-1;
   }
 
   .btn-arrow {
