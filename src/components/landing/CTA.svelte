@@ -90,7 +90,12 @@
       <div
         class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6 justify-center cta-buttons"
       >
-        <a href="#" class="btn-primary group">
+        <a
+          href="https://app.doxadao.org"
+          target="_blank"
+          rel="noopener"
+          class="btn-primary group"
+        >
           Launch Doxa Now
           <span class="btn-arrow group-hover:translate-x-1">→</span>
         </a>

@@ -18,7 +18,7 @@
 
 <div class="app overflow-hidden">
   <Nav />
-  <main class="pt-20">
+  <main class="pt-20 bg-black">
     <slot />
   </main>
   <footer class="bg-gray-900 py-16">
@@ -52,8 +52,11 @@
               >
             </li>
             <li>
-              <a href="/launch" class="text-gray-300 hover:text-gray-50"
-                >Launch App</a
+              <a
+                href="https://app.doxadao.org"
+                target="_blank"
+                rel="noopener"
+                class="text-gray-300 hover:text-gray-50">Launch App</a
               >
             </li>
           </ul>
@@ -99,12 +102,18 @@
 </div>
 
 <style>
+  :global(html),
+  :global(body) {
+    background-color: #000000;
+    overflow-x: hidden;
+  }
+
   .app {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     position: relative;
-    background-color: #1a1a1a;
+    background-color: #000000;
   }
 
   main {

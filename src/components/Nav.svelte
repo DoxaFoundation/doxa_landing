@@ -3,8 +3,8 @@
 </script>
 
 <!-- Navigation -->
-<header class="fixed top-0 left-0 right-0 z-[9999] bg-gray-900">
-  <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+<header class="fixed top-0 left-0 right-0 z-[9999] bg-transparent">
+  <nav class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
     <a
       href="/"
       class="flex items-center text-2xl font-bold text-gray-50 font-['Space_Grotesk']"
@@ -65,7 +65,7 @@
         >Developer</a
       >
       <a
-        href="https://i7m4z-gqaaa-aaaak-qddtq-cai.icp0.io/"
+        href="https://app.doxadao.org"
         target="_blank"
         rel="noopener"
         class="inline-flex items-center justify-center px-6 py-2 bg-gray-700 hover:bg-gray-600 text-gray-50 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-gray-800/30"
@@ -75,7 +75,7 @@
 
     <!-- Mobile Navigation -->
     {#if isMenuOpen}
-      <div class="absolute top-full left-0 right-0 bg-gray-900 md:hidden">
+      <div class="absolute top-full left-0 right-0 bg-black md:hidden">
         <div class="flex flex-col items-center gap-4 py-4">
           <a
             href="/partners"
@@ -119,6 +119,7 @@
     right: 0;
     background-color: #000000; /* Deep black from the palette */
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    height: 80px; /* Exactly 80px matches the pt-20 class */
   }
 
   /* .separator-line style removed */
