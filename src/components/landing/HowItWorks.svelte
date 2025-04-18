@@ -47,17 +47,17 @@
   }
 </script>
 
-<section class="py-24 md:py-32 relative overflow-hidden bg-gray-900">
-  <div class="absolute inset-0 bg-grid opacity-10"></div>
+<section class="py-24 md:py-32 relative overflow-hidden bg-gray-100">
+  <div class="absolute inset-0 bg-grid opacity-20"></div>
 
   <div class="relative container mx-auto px-6">
     <h2
-      class="section-title text-4xl md:text-5xl font-bold text-center text-gray-50 mb-4"
+      class="section-title text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4"
     >
       🧠 How It Works
     </h2>
     <p
-      class="section-subtitle text-xl md:text-2xl text-center text-gray-400 mb-6 max-w-2xl mx-auto"
+      class="section-subtitle text-xl md:text-2xl text-center text-gray-600 mb-6 max-w-2xl mx-auto"
     >
       One protocol. Three core canisters.
     </p>
@@ -84,13 +84,13 @@
       </div>
     </div>
 
-    <p class="conclusion-text text-lg mt-8 mb-10 text-center text-gray-400">
+    <p class="conclusion-text text-lg mt-8 mb-10 text-center text-gray-600">
       And the peg? Maintained 24/7 by an intelligent ckUSDC pool.
     </p>
 
     <!-- Visual Separator -->
     <div
-      class="my-12 h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent"
+      class="my-12 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"
     ></div>
 
     <!-- New Sections Start -->
@@ -98,19 +98,19 @@
       <!-- Transparency Section -->
       <div class="info-card transparency-section max-w-4xl mx-auto">
         <h3
-          class="new-section-title text-3xl md:text-4xl font-bold text-gray-50 mb-6"
+          class="new-section-title text-3xl md:text-4xl font-bold text-gray-900 mb-6"
         >
           🛡️ Transparent. Auditable. Decentralized.
         </h3>
         <ul
-          class="new-section-content space-y-3 text-lg text-gray-300 mb-4 list-none p-0"
+          class="new-section-content space-y-3 text-lg text-gray-700 mb-4 list-none p-0"
         >
           <li>🧾 Real-Time Reserve Dashboards</li>
           <li>🔐 Regular Security Audits</li>
           <li>📖 Open-Source Smart Contracts</li>
           <li>💼 DAO Governance via SNS</li>
         </ul>
-        <p class="new-section-content text-xl text-gray-300 italic">
+        <p class="new-section-content text-xl text-gray-700 italic">
           You deserve to see what backs your money. With Doxa, you do.
         </p>
       </div>
@@ -118,25 +118,25 @@
       <!-- Staking Section -->
       <div class="info-card staking-section max-w-4xl mx-auto">
         <h3
-          class="new-section-title text-3xl md:text-4xl font-bold text-gray-50 mb-6"
+          class="new-section-title text-3xl md:text-4xl font-bold text-gray-900 mb-6"
         >
           🌱 Stake. Earn. Grow.
         </h3>
-        <p class="new-section-content text-lg text-gray-300 mb-4">
+        <p class="new-section-content text-lg text-gray-700 mb-4">
           Doxa isn't just about spending—it's about growing your assets.
         </p>
-        <p class="new-section-content text-lg text-gray-300 mb-6">
+        <p class="new-section-content text-lg text-gray-700 mb-6">
           Stake and lock your DoxaUSD to earn real yield from protocol revenue
           and future staking rewards.
         </p>
         <ul
-          class="new-section-content space-y-3 text-lg text-gray-300 mb-4 list-none p-0 font-medium"
+          class="new-section-content space-y-3 text-lg text-gray-700 mb-4 list-none p-0 font-medium"
         >
           <li>
-            💰 <span class="text-gray-400">30%</span> of all protocol fees
+            💰 <span class="text-gray-500">30%</span> of all protocol fees
           </li>
           <li>
-            🌐 Yield from <span class="text-gray-400">ICP Neuron</span> staking
+            🌐 Yield from <span class="text-gray-500">ICP Neuron</span> staking
           </li>
           <li>📈 Passive income, powered by decentralization</li>
         </ul>
@@ -145,23 +145,23 @@
       <!-- Regulation Section -->
       <div class="info-card regulation-section max-w-4xl mx-auto">
         <h3
-          class="new-section-title text-3xl md:text-4xl font-bold text-gray-50 mb-6"
+          class="new-section-title text-3xl md:text-4xl font-bold text-gray-900 mb-6"
         >
           🏛️ Regulated, Without Compromise
         </h3>
-        <p class="new-section-content text-lg text-gray-300 mb-6">
+        <p class="new-section-content text-lg text-gray-700 mb-6">
           We believe decentralization and compliance can co-exist.
         </p>
-        <p class="new-section-content text-lg text-gray-300 mb-2 font-semibold">
+        <p class="new-section-content text-lg text-gray-700 mb-2 font-semibold">
           🔍 Committed to obtaining:
         </p>
         <ul
-          class="new-section-content space-y-2 text-lg text-gray-300 mb-6 list-none p-0"
+          class="new-section-content space-y-2 text-lg text-gray-700 mb-6 list-none p-0"
         >
           <li>FSCA, FCA, FINMA, NYDFS licenses</li>
           <li>ISO 20022 & ISO 22739 financial messaging standards</li>
         </ul>
-        <p class="new-section-content text-xl text-gray-300 italic">
+        <p class="new-section-content text-xl text-gray-700 italic">
           Doxa is your bridge between the decentralized world and traditional
           finance.
         </p>
@@ -176,14 +176,14 @@
     background-size: 40px 40px;
     background-image: linear-gradient(
         to right,
-        rgba(128, 128, 128, 0.07) 1px,
+        rgba(51, 51, 51, 0.1) 1px,
         transparent 1px
       ),
-      linear-gradient(to bottom, rgba(128, 128, 128, 0.07) 1px, transparent 1px);
+      linear-gradient(to bottom, rgba(51, 51, 51, 0.1) 1px, transparent 1px);
   }
 
   .step-card {
-    @apply p-8 rounded-2xl bg-gray-800/20 backdrop-blur-xl border border-gray-700/50 hover:border-gray-600 transition-all duration-500 text-center transform hover:-translate-y-2 hover:shadow-gray-glow;
+    @apply p-8 rounded-2xl bg-white/50 backdrop-blur-xl border-2 border-gray-300 hover:border-gray-200 transition-all duration-500 text-center transform hover:-translate-y-2 hover:shadow-light-glow;
   }
 
   .step-icon {
@@ -191,38 +191,38 @@
   }
 
   .step-title {
-    @apply text-xl font-semibold text-gray-50 mb-3;
+    @apply text-xl font-semibold text-gray-900 mb-3;
   }
 
   .step-description {
-    @apply text-gray-300;
+    @apply text-gray-700;
   }
 
   .info-card {
-    @apply p-8 md:p-10 rounded-2xl bg-gray-800/20 backdrop-blur-xl border border-gray-700/50 hover:border-gray-600 transition-all duration-500 text-center transform hover:-translate-y-1 hover:shadow-gray-glow;
+    @apply p-8 md:p-10 rounded-2xl bg-white/50 backdrop-blur-xl border-2 border-gray-300 hover:border-gray-200 transition-all duration-500 text-center transform hover:-translate-y-1 hover:shadow-light-glow;
   }
 
   /* Styles for new sections */
   .new-section-title {
-    @apply text-shadow-gray;
+    @apply text-shadow-light;
   }
 
   .new-section-content li::before {
     content: "✓";
-    @apply mr-2 text-gray-400 inline-block;
+    @apply mr-2 text-gray-500 inline-block;
   }
 
   /* Optional: Add a text shadow for titles */
-  .text-shadow-gray {
-    text-shadow: 0 2px 15px rgba(128, 128, 128, 0.5);
+  .text-shadow-light {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
   /* Custom glow effect for cards on hover */
   @tailwind utilities;
   @layer utilities {
     /* Define base utility */
-    .shadow-gray-glow {
-      box-shadow: 0 0 25px 5px rgba(128, 128, 128, 0.4);
+    .shadow-light-glow {
+      box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.08);
     }
   }
 </style>

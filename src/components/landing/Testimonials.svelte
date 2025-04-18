@@ -32,12 +32,12 @@
 </script>
 
 <section class="py-32 relative overflow-hidden">
-  <div class="absolute inset-0 bg-gray-900">
-    <div class="absolute inset-0 bg-grid opacity-10"></div>
+  <div class="absolute inset-0 bg-gray-100">
+    <div class="absolute inset-0 bg-grid opacity-20"></div>
   </div>
 
   <div class="relative container mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-50 mb-16">
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
       What Our Users Say
     </h2>
 
@@ -98,15 +98,15 @@
 
 <style>
   .testimonial-card {
-    @apply p-8 pt-12 rounded-2xl bg-gray-800/20 backdrop-blur-xl border border-gray-700/50 hover:border-gray-500 transition-all duration-500;
+    @apply p-8 pt-12 rounded-2xl bg-white/50 backdrop-blur-xl border-2 border-gray-300 hover:border-gray-200 transition-all duration-500;
   }
 
   .quote-icon {
-    @apply absolute top-4 left-4 text-6xl text-gray-600/30 font-serif;
+    @apply absolute top-4 left-4 text-6xl text-gray-300/30 font-serif;
   }
 
   .testimonial-text {
-    @apply text-gray-300 mb-6;
+    @apply text-gray-700 mb-6;
   }
 
   .testimonial-author {
@@ -114,14 +114,14 @@
   }
 
   .author-avatar {
-    @apply w-12 h-12 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center text-white text-xl;
+    @apply w-12 h-12 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center text-gray-800 text-xl;
   }
 
   .author-name {
-    @apply text-gray-50 font-semibold;
+    @apply text-gray-900 font-semibold;
   }
 
   .author-role {
-    @apply text-gray-400 text-sm;
+    @apply text-gray-600 text-sm;
   }
 </style>

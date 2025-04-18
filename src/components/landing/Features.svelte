@@ -44,22 +44,22 @@
 </script>
 
 <section
-  class="py-24 md:py-32 bg-gradient-to-b from-gray-900 to-gray-800 text-gray-50 relative overflow-hidden"
+  class="py-24 md:py-32 bg-gradient-to-b from-gray-50 to-gray-100 text-gray-900 relative overflow-hidden"
 >
   <div class="container mx-auto px-6 relative z-10">
     <div class="text-center mb-12 md:mb-16">
       <p
-        class="intro-text text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto font-light leading-relaxed"
+        class="intro-text text-xl md:text-2xl text-gray-700 mb-4 max-w-3xl mx-auto font-light leading-relaxed"
       >
         No banks. No middlemen. No central point of failure.
       </p>
       <p
-        class="intro-text text-xl md:text-2xl text-gray-200 mb-16 max-w-3xl mx-auto font-light leading-relaxed"
+        class="intro-text text-xl md:text-2xl text-gray-800 mb-16 max-w-3xl mx-auto font-light leading-relaxed"
       >
         Just programmable money—backed, secure, fast.
       </p>
       <h2
-        class="features-subheading text-3xl md:text-4xl font-bold text-gray-100 mb-16 inline-flex items-center gap-3"
+        class="features-subheading text-3xl md:text-4xl font-bold text-gray-900 mb-16 inline-flex items-center gap-3"
       >
         <span class="text-4xl">🚀</span> Built for Real Impact
       </h2>
@@ -104,7 +104,7 @@
 
     <div class="text-center mt-16">
       <p
-        class="outro-text text-2xl md:text-3xl font-semibold text-gray-200 tracking-wide"
+        class="outro-text text-2xl md:text-3xl font-semibold text-gray-800 tracking-wide"
       >
         Your money. Your way. Anywhere.
       </p>
@@ -114,18 +114,18 @@
 
 <style>
   .feature-card {
-    @apply p-8 rounded-2xl bg-gray-800/30 backdrop-blur-lg border border-gray-700/40 transition-all duration-300 text-center transform hover:-translate-y-2 hover:bg-gray-700/50 hover:border-gray-600 shadow-lg hover:shadow-gray-900/20;
+    @apply p-8 rounded-2xl bg-white/40 backdrop-blur-lg border-2 border-gray-300 transition-all duration-300 text-center transform hover:-translate-y-2 hover:bg-white/60 hover:border-gray-200 shadow-lg hover:shadow-gray-400/20;
   }
 
   .feature-icon {
-    @apply text-5xl mb-5 inline-block text-gray-300;
+    @apply text-5xl mb-5 inline-block text-gray-700;
   }
 
   .feature-title {
-    @apply text-xl font-semibold text-gray-100 mb-4;
+    @apply text-xl font-semibold text-gray-900 mb-4;
   }
 
   .feature-description {
-    @apply text-gray-300/90 text-base leading-relaxed;
+    @apply text-gray-700/90 text-base leading-relaxed;
   }
 </style>

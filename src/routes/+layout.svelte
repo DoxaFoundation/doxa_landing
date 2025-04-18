@@ -18,16 +18,16 @@
 
 <div class="app overflow-hidden">
   <Nav />
-  <main class="pt-20 bg-black">
+  <main class="pt-20 bg-gray-50">
     <slot />
   </main>
-  <footer class="bg-gray-900 py-16">
+  <footer class="bg-gray-100 py-16">
     <div class="max-w-7xl mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
         <!-- About Us -->
         <div>
-          <h3 class="text-xl font-bold text-gray-50 mb-4">About Us</h3>
-          <p class="text-gray-300">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">About Us</h3>
+          <p class="text-gray-700">
             Doxa is a multi-stablecoin platform built on the Internet Computer
             (IC). Our platform enables seamless integration and amazing
             applications.
@@ -36,18 +36,18 @@
 
         <!-- Quick Links -->
         <div>
-          <h3 class="text-xl font-bold text-gray-50 mb-4">Quick Links</h3>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Quick Links</h3>
           <ul class="space-y-2">
             <li>
-              <a href="/partners" class="text-gray-300 hover:text-gray-50"
+              <a href="/partners" class="text-gray-700 hover:text-gray-900"
                 >Partners</a
               >
             </li>
             <li>
-              <a href="/use" class="text-gray-300 hover:text-gray-50">Use</a>
+              <a href="/use" class="text-gray-700 hover:text-gray-900">Use</a>
             </li>
             <li>
-              <a href="/developer" class="text-gray-300 hover:text-gray-50"
+              <a href="/developer" class="text-gray-700 hover:text-gray-900"
                 >Developer</a
               >
             </li>
@@ -56,7 +56,7 @@
                 href="https://app.doxadao.org"
                 target="_blank"
                 rel="noopener"
-                class="text-gray-300 hover:text-gray-50">Launch App</a
+                class="text-gray-700 hover:text-gray-900">Launch App</a
               >
             </li>
           </ul>
@@ -64,10 +64,10 @@
 
         <!-- Contact Us -->
         <div>
-          <h3 class="text-xl font-bold text-gray-50 mb-4">Contact Us</h3>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Contact Us</h3>
           <a
             href="mailto:doxadaooperations@gmail.com"
-            class="text-gray-300 hover:text-gray-50"
+            class="text-gray-700 hover:text-gray-900"
           >
             doxadaooperations@gmail.com
           </a>
@@ -75,51 +75,51 @@
 
         <!-- Follow Us -->
         <div>
-          <h3 class="text-xl font-bold text-gray-50 mb-4">Follow Us</h3>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Follow Us</h3>
           <div class="flex gap-4">
             <a
               href="https://x.com/DoxaUSD"
               target="_blank"
               rel="noopener"
-              class="text-gray-300 hover:text-gray-50">X</a
+              class="text-gray-700 hover:text-gray-900">X</a
             >
             <a
               href="https://discord.gg/h7Exzz96Xd"
               target="_blank"
               rel="noopener"
-              class="text-gray-300 hover:text-gray-50">Discord</a
+              class="text-gray-700 hover:text-gray-900">Discord</a
             >
             <a
               href="https://github.com/DoxaFoundation"
               target="_blank"
               rel="noopener"
-              class="text-gray-300 hover:text-gray-50">GitHub</a
+              class="text-gray-700 hover:text-gray-900">GitHub</a
             >
             <a
               href="https://oc.app/community/4opco-piaaa-aaaaf-bmytq-cai/?ref=65m7d-siaaa-aaaaf-azprq-cai"
               target="_blank"
               rel="noopener"
-              class="text-gray-300 hover:text-gray-50">OpenChat</a
+              class="text-gray-700 hover:text-gray-900">OpenChat</a
             >
 
             <a
               href="https://www.linkedin.com/company/doxausd"
               target="_blank"
               rel="noopener"
-              class="text-gray-300 hover:text-gray-50">LinkedIn</a
+              class="text-gray-700 hover:text-gray-900">LinkedIn</a
             >
           </div>
         </div>
       </div>
 
       <!-- Copyright & Legal -->
-      <div class="pt-8 border-t border-gray-700">
-        <div class="text-gray-300 text-center">© 2025 Doxa</div>
+      <div class="pt-8 border-t-2 border-gray-300">
+        <div class="text-gray-700 text-center">© 2025 Doxa</div>
         <div class="flex justify-center gap-8 mt-4">
-          <a href="/terms" class="text-gray-400 hover:text-gray-300"
+          <a href="/terms" class="text-gray-600 hover:text-gray-800"
             >Terms of Use</a
           >
-          <a href="/privacy" class="text-gray-400 hover:text-gray-300"
+          <a href="/privacy" class="text-gray-600 hover:text-gray-800"
             >Privacy Policy</a
           >
         </div>
@@ -131,7 +131,7 @@
 <style>
   :global(html),
   :global(body) {
-    background-color: #000000;
+    background-color: var(--color-bg-0);
     overflow-x: hidden;
     font-family: "Inter", sans-serif;
   }
@@ -141,7 +141,7 @@
     flex-direction: column;
     min-height: 100vh;
     position: relative;
-    background-color: #000000;
+    background-color: var(--color-bg-0);
   }
 
   main {

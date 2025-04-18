@@ -85,17 +85,17 @@
   />
 </svelte:head>
 
-<div class="min-h-screen bg-gray-900">
+<div class="min-h-screen bg-gray-50">
   <div class="relative min-h-screen overflow-hidden">
     <!-- Gradient Overlay -->
     <div
-      class="absolute inset-0 bg-gradient-to-br from-gray-800/50 to-transparent z-0"
+      class="absolute inset-0 bg-gradient-to-br from-gray-200/50 to-transparent z-0"
     ></div>
 
     <!-- Grid Background -->
     <div
-      class="grid-background absolute inset-0 z-0 opacity-50 pointer-events-none"
-      style="background-size: 40px 40px; background-image: linear-gradient(to right, rgba(204, 204, 204, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(204, 204, 204, 0.1) 1px, transparent 1px);"
+      class="grid-background absolute inset-0 z-0 opacity-75 pointer-events-none"
+      style="background-size: 40px 40px; background-image: linear-gradient(to right, rgba(51, 51, 51, 0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(51, 51, 51, 0.2) 1px, transparent 1px);"
     ></div>
 
     <!-- Background Particles -->
@@ -103,7 +103,7 @@
       <div
         class="particle absolute h-2 w-2 rounded-full"
         style="
-          background: {['#666666', '#999999', '#4d4d4d'][i % 3]};
+          background: {['#333333', '#4d4d4d', '#666666'][i % 3]};
           left: {Math.random() * 100}%;
           top: {Math.random() * 100}%;
           filter: blur(1px);
@@ -115,9 +115,9 @@
     <!-- Shooting Stars -->
     {#each Array(10) as _, i}
       <div
-        class="shooting-star absolute h-px w-20 opacity-20"
+        class="shooting-star absolute h-px w-20 opacity-30"
         style="
-          background: linear-gradient(90deg, {['#666666', '#999999', '#4d4d4d'][
+          background: linear-gradient(90deg, {['#333333', '#4d4d4d', '#666666'][
           i % 3
         ]}, transparent);
           left: {-Math.random() * 100}%;
@@ -148,25 +148,24 @@
   }
 
   :global(body) {
-    @apply text-gray-200;
-    background: #000000;
+    background: var(--color-bg-0);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
   }
 
   :global(#svelte) {
-    background: #000000;
+    background: var(--color-bg-0);
   }
 
   .grid-background {
     background-size: 40px 40px;
     background-image: linear-gradient(
         to right,
-        rgba(204, 204, 204, 0.1) 1px,
+        rgba(51, 51, 51, 0.2) 1px,
         transparent 1px
       ),
-      linear-gradient(to bottom, rgba(204, 204, 204, 0.1) 1px, transparent 1px);
+      linear-gradient(to bottom, rgba(51, 51, 51, 0.2) 1px, transparent 1px);
     background-position: 0 0;
   }
 
@@ -205,10 +204,10 @@
     background-size: 40px 40px;
     background-image: linear-gradient(
         to right,
-        rgba(204, 204, 204, 0.1) 1px,
+        rgba(51, 51, 51, 0.2) 1px,
         transparent 1px
       ),
-      linear-gradient(to bottom, rgba(204, 204, 204, 0.1) 1px, transparent 1px);
+      linear-gradient(to bottom, rgba(51, 51, 51, 0.2) 1px, transparent 1px);
   }
 
   @keyframes shooting {
@@ -256,7 +255,7 @@
 
   .feature-card:hover {
     transform: translateY(-10px) rotate(2deg);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
   }
 
   .particle {
@@ -286,7 +285,7 @@
 
   .stats-card:hover {
     transform: translateY(-10px) rotate(2deg) scale(1.05);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
   }
 
   .hero-title {
@@ -304,7 +303,7 @@
     background: linear-gradient(
       to right,
       transparent,
-      theme("colors.gray.400"),
+      theme("colors.gray.600"),
       transparent
     );
     transform: scaleX(0);
@@ -326,7 +325,7 @@
 
   .news-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
   }
 
   .news-card::after {
@@ -339,7 +338,7 @@
     background: linear-gradient(
       to right,
       transparent,
-      theme("colors.gray.400"),
+      theme("colors.gray.600"),
       transparent
     );
     transform: scaleX(0);
@@ -358,6 +357,6 @@
 
   .integration-card:hover {
     transform: translateY(-10px) scale(1.02) rotate(1deg);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
   }
 </style>

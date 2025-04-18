@@ -63,16 +63,16 @@
 <div class="relative py-20 overflow-hidden">
   <!-- Gradient Background -->
   <div
-    class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 opacity-90"
+    class="absolute inset-0 bg-gradient-to-r from-gray-50 via-gray-100 to-gray-50 opacity-90"
   ></div>
 
   <!-- Animated Circles -->
   <div class="absolute inset-0">
     <div
-      class="cta-circle absolute w-96 h-96 bg-gray-600/20 rounded-full -top-48 -left-48 blur-3xl"
+      class="cta-circle absolute w-96 h-96 bg-gray-300/20 rounded-full -top-48 -left-48 blur-3xl"
     ></div>
     <div
-      class="cta-circle absolute w-96 h-96 bg-gray-700/20 rounded-full -bottom-48 -right-48 blur-3xl"
+      class="cta-circle absolute w-96 h-96 bg-gray-200/20 rounded-full -bottom-48 -right-48 blur-3xl"
     ></div>
   </div>
 
@@ -81,10 +81,10 @@
       <div class="flex justify-center mb-6">
         <img src="/images/DOXA.svg" alt="Doxa Logo" class="h-16" />
       </div>
-      <h2 class="text-4xl font-bold mb-6 text-gray-50">
+      <h2 class="text-4xl font-bold mb-6 text-gray-900">
         Be an Early Minter. Be a Pioneer.
       </h2>
-      <p class="text-xl mb-8 text-gray-300">
+      <p class="text-xl mb-8 text-gray-700">
         This is your chance to help shape the next generation of global finance.
       </p>
       <div
@@ -146,7 +146,7 @@
     background: linear-gradient(
       to right,
       transparent,
-      rgba(204, 204, 204, 0.1),
+      rgba(51, 51, 51, 0.1),
       transparent
     );
     transform: translateX(-100%);
@@ -162,11 +162,11 @@
   }
 
   .btn-primary {
-    @apply bg-gray-200 text-gray-900 hover:bg-gray-100 hover:scale-105 hover:-rotate-1;
+    @apply bg-gray-800 text-gray-50 hover:bg-gray-700 hover:scale-105 hover:-rotate-1;
   }
 
   .btn-secondary {
-    @apply border-2 border-gray-400 text-gray-50 hover:bg-gray-700 hover:text-gray-50 hover:scale-105 hover:rotate-1;
+    @apply border-2 border-gray-300 text-gray-800 hover:bg-gray-100 hover:border-gray-200 hover:text-gray-800 hover:scale-105 hover:rotate-1;
   }
 
   .btn-arrow {
