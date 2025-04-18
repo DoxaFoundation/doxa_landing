@@ -11,7 +11,7 @@
     crossorigin="anonymous"
   />
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
 </svelte:head>
@@ -77,10 +77,37 @@
         <div>
           <h3 class="text-xl font-bold text-gray-50 mb-4">Follow Us</h3>
           <div class="flex gap-4">
-            <a href="#" class="text-gray-300 hover:text-gray-50">Twitter</a>
-            <a href="#" class="text-gray-300 hover:text-gray-50">Discord</a>
-            <a href="#" class="text-gray-300 hover:text-gray-50">GitHub</a>
-            <a href="#" class="text-gray-300 hover:text-gray-50">Community</a>
+            <a
+              href="https://x.com/DoxaUSD"
+              target="_blank"
+              rel="noopener"
+              class="text-gray-300 hover:text-gray-50">X</a
+            >
+            <a
+              href="https://discord.gg/h7Exzz96Xd"
+              target="_blank"
+              rel="noopener"
+              class="text-gray-300 hover:text-gray-50">Discord</a
+            >
+            <a
+              href="https://github.com/DoxaFoundation"
+              target="_blank"
+              rel="noopener"
+              class="text-gray-300 hover:text-gray-50">GitHub</a
+            >
+            <a
+              href="https://oc.app/community/4opco-piaaa-aaaaf-bmytq-cai/?ref=65m7d-siaaa-aaaaf-azprq-cai"
+              target="_blank"
+              rel="noopener"
+              class="text-gray-300 hover:text-gray-50">OpenChat</a
+            >
+
+            <a
+              href="https://www.linkedin.com/company/doxausd"
+              target="_blank"
+              rel="noopener"
+              class="text-gray-300 hover:text-gray-50">LinkedIn</a
+            >
           </div>
         </div>
       </div>
@@ -106,6 +133,7 @@
   :global(body) {
     background-color: #000000;
     overflow-x: hidden;
+    font-family: "Inter", sans-serif;
   }
 
   .app {
