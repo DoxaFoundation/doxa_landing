@@ -16,6 +16,15 @@
     easing: cubicOut,
   });
 
+  let heroSection: HTMLElement;
+  let titleElement: HTMLElement;
+  let subtitleElement: HTMLElement;
+  let ctaButton: HTMLElement;
+  let heroImage: HTMLElement;
+  let particlesContainer: HTMLElement;
+
+  const NUM_PARTICLES = 40;
+
   onMount(() => {
     if (gsap) {
       // Initialize animations
@@ -27,6 +36,108 @@
         apy.set(8.2);
       }, 500);
     }
+
+    if (!gsap) return;
+
+    // Create a captivating entrance animation
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    // Staggered elements entrance
+    tl.from(titleElement, {
+      y: 80,
+      opacity: 0,
+      duration: 1.2,
+    })
+      .from(
+        subtitleElement,
+        {
+          y: 60,
+          opacity: 0,
+          duration: 1,
+        },
+        "-=0.8"
+      )
+      .from(
+        ctaButton,
+        {
+          y: 40,
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.8,
+        },
+        "-=0.6"
+      )
+      .from(
+        heroImage,
+        {
+          y: 100,
+          opacity: 0,
+          rotationY: 15,
+          transformPerspective: 1000,
+          duration: 1.4,
+        },
+        "-=1"
+      );
+
+    // Animate the 3D tilt effect based on mouse movement
+    if (heroSection) {
+      heroSection.addEventListener("mousemove", (e) => {
+        if (!titleElement || !heroImage) return;
+
+        const mouseX = e.clientX / window.innerWidth - 0.5;
+        const mouseY = e.clientY / window.innerHeight - 0.5;
+
+        gsap.to(titleElement, {
+          rotationY: mouseX * 10,
+          rotationX: -mouseY * 10,
+          transformPerspective: 900,
+          duration: 0.4,
+        });
+
+        gsap.to(heroImage, {
+          rotationY: mouseX * 20,
+          rotationX: -mouseY * 5,
+          transformPerspective: 1000,
+          duration: 0.6,
+        });
+      });
+    }
+
+    // Animate the particles
+    if (particlesContainer) {
+      const particles = particlesContainer.querySelectorAll(".particle");
+
+      particles.forEach((particle, i) => {
+        const delay = i * 0.05;
+        const duration = 10 + Math.random() * 20;
+
+        gsap.set(particle, {
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          opacity: Math.random() * 0.6 + 0.2,
+        });
+
+        gsap.to(particle, {
+          x: "+=" + (Math.random() * 200 - 100),
+          y: "+=" + (Math.random() * 200 - 100),
+          opacity: Math.random() * 0.6 + 0.2,
+          duration: duration,
+          delay: delay,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      });
+    }
+
+    // Subtle breathing animation for the whole hero
+    gsap.to(heroSection, {
+      backgroundPosition: "100% 50%",
+      duration: 15,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+    });
   });
 
   function initAnimations() {
@@ -118,277 +229,310 @@
 </script>
 
 <div
-  class="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 text-gray-900 font-space-grotesk flex items-center"
+  bind:this={heroSection}
+  class="hero-section relative min-h-screen flex items-center justify-center py-24 overflow-hidden"
+  style="background: linear-gradient(135deg, rgba(229,228,226,0.9), rgba(245,245,245,0.9)); background-size: 200% 200%;"
 >
-  <!-- Light Grid Background -->
+  <!-- Particle system -->
   <div
-    class="grid-background absolute inset-0 z-0 opacity-50 pointer-events-none"
+    bind:this={particlesContainer}
+    class="absolute inset-0 overflow-hidden pointer-events-none"
+  >
+    {#each Array(NUM_PARTICLES) as _, i}
+      <div
+        class="particle absolute rounded-full shadow-md"
+        style="
+          width: {Math.random() * 12 + 4}px; 
+          height: {Math.random() * 12 + 4}px;
+          background: linear-gradient(135deg, rgba(169,169,169,{Math.random() *
+          0.5 +
+          0.3}), rgba(192,192,192,{Math.random() * 0.3 + 0.2}));
+          filter: blur({Math.random() * 2}px);
+          transform-style: preserve-3d;
+        "
+      ></div>
+    {/each}
+  </div>
+
+  <!-- Decorative gradient circles -->
+  <div
+    class="absolute top-0 left-0 w-3/4 h-3/4 rounded-full bg-gradient-to-br from-white/30 to-transparent -translate-x-1/4 -translate-y-1/4 blur-3xl pointer-events-none"
+  ></div>
+  <div
+    class="absolute bottom-0 right-0 w-1/2 h-2/3 rounded-full bg-gradient-to-tl from-slate-200/60 to-transparent translate-x-1/4 translate-y-1/3 blur-3xl pointer-events-none"
+  ></div>
+  <div
+    class="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-bl from-white/40 to-transparent blur-3xl pointer-events-none"
   ></div>
 
-  <!-- Hero Section -->
-  <div class="container mx-auto px-6 py-20 relative">
-    <!-- Animated Particles -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      {#each Array(25) as _, i}
-        <div
-          class="particle absolute rounded-full"
-          style="
-            background: {[
-            '#333333',
-            '#4d4d4d',
-            '#666666',
-            '#999999',
-            '#cccccc',
-          ][i % 5]};
-            left: {Math.random() * 100}%;
-            top: {Math.random() * 100}%;
-            height: {Math.random() * 3 + 1}px;
-            width: {Math.random() * 3 + 1}px;
-            filter: blur({Math.random() * 2 + 1}px);
-            opacity: {Math.random() * 0.6 + 0.2};
-            box-shadow: 0 0 8px 2px {[
-            '#33333380',
-            '#4d4d4d80',
-            '#66666680',
-            '#99999980',
-            '#cccccc80',
-          ][i % 5]};
-          "
-        />
-      {/each}
+  <div
+    class="container mx-auto px-6 z-10 flex flex-col lg:flex-row items-center justify-between gap-12"
+  >
+    <!-- Text content -->
+    <div class="w-full lg:w-1/2 max-w-2xl">
+      <h1
+        bind:this={titleElement}
+        class="text-5xl md:text-7xl font-bold mb-8 leading-tight gradient-text text-shadow-sm transform-gpu"
+        style="transform-style: preserve-3d;"
+      >
+        <span class="block">The Future of</span>
+        <span class="relative inline-block">
+          <span class="relative z-10 pr-2">Currency</span>
+          <span
+            class="absolute bottom-2 left-0 h-4 w-full bg-gradient-to-r from-slate-300/60 via-slate-400/40 to-slate-300/60 -skew-y-3 -z-10 blur-sm"
+          ></span>
+        </span>
+      </h1>
+
+      <p
+        bind:this={subtitleElement}
+        class="text-xl md:text-2xl text-gray-700 mb-12 max-w-xl"
+      >
+        Create, own, and earn with Doxa's revolutionary
+        <span class="font-semibold relative"
+          >multi-stablecoin
+          <span
+            class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-slate-400/70 via-slate-500/50 to-slate-400/70"
+          ></span>
+        </span>
+        platform.
+      </p>
     </div>
 
-    <div class="flex flex-col md:flex-row items-center gap-10">
-      <div class="md:w-1/2 relative flex flex-col justify-center">
-        <!-- Light Orbs -->
+    <!-- Hero visual -->
+    <div
+      bind:this={heroImage}
+      class="w-full lg:w-1/2 card-3d p-6 transform-gpu"
+      style="transform-style: preserve-3d;"
+    >
+      <div class="card-3d-inner relative">
+        <!-- Main circle -->
         <div
-          class="absolute -left-20 -top-20 w-64 h-64 bg-gray-300/10 rounded-full filter blur-3xl animate-pulse"
-        ></div>
-        <div
-          class="absolute right-0 bottom-0 w-40 h-40 bg-gray-400/10 rounded-full filter blur-3xl animate-pulse"
-          style="animation-delay: 1s;"
-        ></div>
-        <div
-          class="absolute left-40 top-20 w-20 h-20 bg-gray-200/10 rounded-full filter blur-3xl animate-pulse"
-          style="animation-delay: 2s;"
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-gradient-to-br from-slate-300 to-slate-400 blur-sm"
         ></div>
 
+        <!-- Floating coin mockups -->
         <div
-          class="relative z-10 backdrop-blur-sm bg-white/60 p-8 rounded-3xl border-2 border-gray-300"
+          class="coin absolute top-1/4 left-1/3 w-36 h-36 rounded-full bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 flex items-center justify-center transform-gpu"
+          style="filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));"
         >
-          <div class="flex justify-center mb-6">
-            <img src="/images/DOXA.svg" alt="Doxa Logo" class="h-20" />
-          </div>
-
-          <h1
-            class="hero-title text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight relative text-center"
-          >
-            <span
-              class="relative inline-block transform hover:scale-105 transition-transform duration-500"
-            >
-              <span
-                class="text-transparent bg-clip-text bg-gradient-to-r from-gray-600 via-gray-700 to-gray-600"
-                >Doxa</span
-              >
-              <span
-                class="absolute inset-0 bg-gradient-to-r from-gray-600 via-gray-700 to-gray-600 filter blur-xl opacity-30 animate-pulse"
-              ></span>
-            </span>
-            <span class="block md:inline relative">
-              <span class="relative z-10">The</span>
-              <span class="relative z-10 ml-2 font-extrabold">future</span>
-              <span class="relative z-10 ml-2">of</span>
-              <span
-                class="relative z-10 ml-2 text-transparent bg-clip-text bg-gradient-to-br from-gray-600 to-gray-700"
-                >Currency</span
-              >
-              <span
-                class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-600 to-transparent opacity-70"
-              ></span>
-            </span>
-          </h1>
-
-          <h2
-            class="hero-subheadline text-2xl md:text-3xl mb-6 text-gray-700/90 font-semibold text-center mt-2"
-          >
-            <span
-              class="bg-gradient-to-r from-gray-600 to-gray-700 bg-clip-text text-transparent"
-              >Create</span
-            >
-            •
-            <span
-              class="bg-gradient-to-r from-gray-700 to-gray-800 bg-clip-text text-transparent"
-              >Own</span
-            >
-            •
-            <span
-              class="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent"
-              >Earn</span
-            >
-          </h2>
-
-          <p
-            class="hero-description text-xl text-gray-700 mb-10 max-w-xl mx-auto text-center mt-2 bg-white/10 py-3 px-6 rounded-xl border-2 border-gray-300 shadow-lg shadow-gray-400/5"
-          >
-            A revolutionary multi-stablecoin platform powered by Doxa USD
-          </p>
-
+          <!-- Inner coin -->
           <div
-            class="hero-buttons flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6 justify-center"
+            class="w-28 h-28 rounded-full bg-gradient-radial from-slate-100 via-slate-200 to-slate-300 flex items-center justify-center relative overflow-hidden"
           >
-            <a
-              href="#"
-              class="group bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 px-8 py-4 rounded-full font-medium hover:from-gray-200 hover:to-gray-300 transition-all duration-300 transform hover:scale-105 hover:-rotate-1 flex items-center gap-2 shadow-lg shadow-gray-400/20"
-            >
-              Get Early Access
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 transform group-hover:translate-x-1 transition-transform"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </a>
-            <a
-              href="#"
-              class="group bg-transparent border-2 border-gray-300 text-gray-800 px-8 py-3.5 rounded-full font-medium hover:bg-gray-100/50 hover:border-gray-200 transition-all duration-300 hover:scale-105 hover:rotate-1 shadow-lg shadow-gray-400/10"
-            >
-              Read Whitepaper
-            </a>
+            <!-- Currency symbol -->
+            <div class="text-6xl font-medium text-gray-700">$</div>
           </div>
         </div>
-      </div>
 
-      <!-- Stats Cards -->
-      <div class="md:w-1/2 mt-16 md:mt-0 grid grid-cols-2 gap-6 relative">
-        <!-- Light Background Glow -->
         <div
-          class="absolute inset-0 bg-gradient-to-br from-gray-200/10 via-gray-100/10 to-gray-300/10 filter blur-3xl"
+          class="coin absolute top-1/2 right-1/4 w-28 h-28 rounded-full bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 flex items-center justify-center transform-gpu"
+          style="filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.12));"
+        >
+          <!-- Inner coin -->
+          <div
+            class="w-20 h-20 rounded-full bg-gradient-radial from-slate-200 via-slate-300 to-slate-400 flex items-center justify-center relative overflow-hidden"
+          >
+            <!-- Currency symbol -->
+            <div class="text-5xl font-medium text-gray-700">€</div>
+          </div>
+        </div>
+
+        <div
+          class="coin absolute bottom-1/3 left-1/4 w-24 h-24 rounded-full bg-gradient-to-br from-slate-300 via-slate-400 to-slate-500 flex items-center justify-center transform-gpu"
+          style="filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.1));"
+        >
+          <!-- Inner coin -->
+          <div
+            class="w-16 h-16 rounded-full bg-gradient-radial from-slate-300 via-slate-400 to-slate-500 flex items-center justify-center relative overflow-hidden"
+          >
+            <!-- Currency symbol -->
+            <div class="text-4xl font-medium text-white/90">£</div>
+          </div>
+        </div>
+
+        <!-- Add small decorative coins in the background for depth -->
+        <div
+          class="coin absolute top-[15%] right-[15%] w-16 h-16 rounded-full bg-gradient-to-br from-slate-400 via-slate-500 to-slate-600 opacity-30 transform-gpu rotate-12"
+        ></div>
+        <div
+          class="coin absolute bottom-[20%] right-[30%] w-12 h-12 rounded-full bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 opacity-20 transform-gpu -rotate-12"
         ></div>
 
-        <div
-          class="stats-card flex flex-col justify-between bg-white/70 backdrop-blur-xl p-6 rounded-2xl border-2 border-gray-300 hover:border-gray-200 transition-all duration-300 transform hover:scale-105 hover:rotate-2 shadow-lg shadow-gray-400/10"
+        <!-- Connection lines -->
+        <svg
+          class="absolute inset-0 w-full h-full"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <div>
-            <h3 class="text-gray-600 mb-2 truncate font-medium">
-              Total Value Locked
-            </h3>
-            <div class="text-3xl font-bold text-gray-900 truncate">
-              ${$tvl.toFixed(1)}M
-            </div>
-          </div>
-          <div class="text-gray-700 flex items-center gap-1 mt-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4 flex-shrink-0"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-              />
-            </svg>
-            <span class="truncate">12.5%</span>
-          </div>
-        </div>
-
-        <div
-          class="stats-card flex flex-col justify-between bg-white/70 backdrop-blur-xl p-6 rounded-2xl border border-gray-300/50 hover:border-gray-400/70 transition-all duration-300 transform hover:scale-105 hover:rotate-2 shadow-lg shadow-gray-400/10"
-        >
-          <div>
-            <h3 class="text-gray-600 mb-2 truncate font-medium">APY</h3>
-            <div class="text-3xl font-bold text-gray-900 truncate">
-              {$apy.toFixed(1)}%
-            </div>
-          </div>
-          <div class="text-gray-700 mt-2 truncate">↑ 0.5%</div>
-        </div>
-
-        <div
-          class="stats-card flex flex-col justify-between bg-white/70 backdrop-blur-xl p-6 rounded-2xl border border-gray-200/50 hover:border-gray-300/70 transition-all duration-300 transform hover:scale-105 hover:rotate-2 shadow-lg shadow-gray-400/10"
-        >
-          <div>
-            <h3 class="text-gray-600 mb-2 truncate font-medium">
-              Weekly Rewards
-            </h3>
-            <div class="text-3xl font-bold text-gray-900 truncate">
-              125,000 DOXA
-            </div>
-          </div>
-          <div class="mt-2 h-5">&nbsp;</div>
-        </div>
-
-        <div
-          class="stats-card flex flex-col justify-between bg-white/70 backdrop-blur-xl p-6 rounded-2xl border border-gray-300/50 hover:border-gray-400/70 transition-all duration-300 transform hover:scale-105 hover:rotate-2 shadow-lg shadow-gray-400/10"
-        >
-          <div>
-            <h3 class="text-gray-600 mb-2 truncate font-medium">
-              Total Fees Collected
-            </h3>
-            <div class="text-3xl font-bold text-gray-900 truncate">$283.5K</div>
-          </div>
-          <div class="mt-2 h-5">&nbsp;</div>
-        </div>
+          <line
+            x1="33"
+            y1="25"
+            x2="75"
+            y2="50"
+            stroke="rgba(211,211,211,0.5)"
+            stroke-width="0.3"
+          ></line>
+          <line
+            x1="33"
+            y1="25"
+            x2="25"
+            y2="67"
+            stroke="rgba(211,211,211,0.5)"
+            stroke-width="0.3"
+          ></line>
+          <line
+            x1="25"
+            y1="67"
+            x2="75"
+            y2="50"
+            stroke="rgba(211,211,211,0.5)"
+            stroke-width="0.3"
+          ></line>
+        </svg>
       </div>
     </div>
   </div>
 </div>
 
 <style>
-  .particle {
-    will-change: transform;
-    transform-style: preserve-3d;
+  .hero-section {
+    perspective: 1000px;
   }
 
-  @keyframes pulse {
+  .gradient-text {
+    background: linear-gradient(90deg, #5a5a5a, #444444);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .button {
+    background: linear-gradient(135deg, #5a5a5a, #444444);
+    color: white;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .coin {
+    transition: transform 0.5s ease;
+    animation: float 5s infinite ease-in-out;
+    transform-style: preserve-3d;
+    will-change: transform;
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .coin:nth-child(2) {
+    animation-delay: 0.5s;
+    animation-duration: 6s;
+  }
+
+  .coin:nth-child(3) {
+    animation-delay: 1s;
+    animation-duration: 7s;
+  }
+
+  @keyframes float {
     0%,
     100% {
-      opacity: 0.5;
-      transform: scale(1);
+      transform: translateY(0) translateZ(0) rotateY(0deg);
+    }
+    25% {
+      transform: translateY(-8px) translateZ(10px) rotateY(5deg);
     }
     50% {
-      opacity: 0.8;
-      transform: scale(1.1);
+      transform: translateY(-15px) translateZ(20px) rotateY(10deg);
+    }
+    75% {
+      transform: translateY(-8px) translateZ(10px) rotateY(5deg);
     }
   }
 
-  .animate-pulse {
-    animation: pulse 3s infinite;
+  @keyframes shine {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
   }
 
-  .hero-title::after {
+  /* Coin styling improvements */
+  .coin:hover {
+    transform: translateY(-10px) scale(1.05) rotateY(15deg);
+    transition: transform 0.3s ease-out;
+    animation-play-state: paused;
+    z-index: 50;
+  }
+
+  /* Enhanced coin inner style with metallic texture */
+  .coin::before {
     content: "";
     position: absolute;
-    bottom: -10px;
+    top: 0;
     left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      theme("colors.gray.600"),
-      transparent
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.05) 1px,
+      rgba(255, 255, 255, 0.03) 2px
     );
-    transform: scaleX(0);
-    transform-origin: left;
-    animation: lineReveal 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    animation-delay: 1s;
+    border-radius: 50%;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
   }
 
-  @keyframes lineReveal {
-    to {
-      transform: scaleX(1);
-    }
+  /* Coin ring shine animation */
+  .coin::after {
+    content: "";
+    position: absolute;
+    top: -5%;
+    left: -100%;
+    width: 300%;
+    height: 10%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transform: rotate(30deg);
+    animation: shine 8s infinite linear;
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .stat {
+    position: relative;
+    overflow: hidden;
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .stat:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   }
 </style>

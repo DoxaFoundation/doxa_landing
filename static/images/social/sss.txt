@@ -1,0 +1,5 @@
+Dynamic Hero Section
+Built a captivating hero with floating 3D coins and connecting elements
+Added sophisticated particle system with realistic movement
+Implemented GSAP animations for smooth, premium entrances and interactions
+Created elegant stats display with hover effects

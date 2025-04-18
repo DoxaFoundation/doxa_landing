@@ -36,6 +36,10 @@
 
 <style lang="postcss">
   :global(body) {
-    @apply bg-gradient-to-br from-[#1E0447] to-[#3B0764] text-white min-h-screen;
+    @apply bg-gradient-to-br from-slate-100 to-slate-200 text-gray-800 min-h-screen;
+  }
+
+  article {
+    @apply prose prose-lg;
   }
 </style>

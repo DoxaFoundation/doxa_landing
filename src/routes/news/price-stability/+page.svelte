@@ -35,6 +35,36 @@
 
 <style lang="postcss">
   :global(body) {
-    @apply bg-gradient-to-br from-[#1E0447] to-[#3B0764] text-white min-h-screen;
+    @apply bg-gradient-to-br from-slate-100 to-slate-200 text-gray-800 min-h-screen;
+  }
+
+  article {
+    @apply prose prose-lg;
+  }
+
+  /* Add shiny effects */
+  .max-w-4xl {
+    @apply shadow-xl rounded-lg backdrop-blur-sm bg-white/70 border border-white/50;
+  }
+
+  h1 {
+    @apply bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent drop-shadow-sm;
+  }
+
+  .prose {
+    @apply text-gray-700;
+  }
+
+  a {
+    @apply text-gray-600 hover:text-gray-800 transition-colors relative;
+  }
+
+  a::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-gray-400 to-gray-600 scale-x-0 origin-bottom-left transition-transform duration-300;
+  }
+
+  a:hover::after {
+    @apply scale-x-100;
   }
 </style>

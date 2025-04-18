@@ -3,22 +3,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Your custom styles below */
+/* Modern Sophisticated Design System */
 
 :root {
-  --font-body: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   --font-mono: "Fira Mono", monospace;
-  --color-bg-0: #f9f9f9; /* Lightest background */
-  --color-bg-1: #f2f2f2; /* Slightly darker background */
-  --color-bg-2: #e5e5e5; /* Another background variant */
-  --color-theme-1: #666666; /* Primary theme color, mid-gray */
-  --color-theme-2: #4d4d4d; /* Secondary theme color, darker mid-gray */
-  --color-text: #333333; /* Darkest text color */
-  --column-width: 42rem;
-  --column-margin-top: 4rem;
+
+  /* Enhanced platinum palette with deeper contrasts */
+  --color-bg-0: #e5e4e2; /* Platinum base */
+  --color-bg-1: #f5f5f5; /* White Smoke - lighter */
+  --color-bg-2: #c0c0c0; /* Silver - darker accent */
+  --color-theme-1: #5a5a5a; /* Darker gray for better contrast */
+  --color-theme-2: #444444; /* Even darker gray for emphasis */
+  --color-text: #1a1a1a; /* Near black for maximum readability */
+
+  /* Design system variables */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 16px 38px rgba(0, 0, 0, 0.18);
+  --shadow-highlight: 0 0 15px rgba(255, 255, 255, 0.8);
+  --gradient-highlight: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0)
+  );
+  --border-light: 1px solid rgba(255, 255, 255, 0.2);
+  --border-medium: 2px solid rgba(255, 255, 255, 0.3);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  --blur-light: blur(8px);
+  --blur-heavy: blur(20px);
+
   font-family: var(--font-body);
   color: var(--color-text);
+}
+
+/* Global rule to force Inter font */
+* {
+  font-family: "Inter", sans-serif;
 }
 
 /* Hide "New File Content" text */
@@ -36,83 +60,372 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: var(--color-bg-0); /* Use bg-0 */
-  color: var(--color-text); /* Use text color */
+  background: linear-gradient(135deg, var(--color-bg-0), var(--color-bg-1));
+  color: var(--color-text);
   overflow-x: hidden;
+  font-family: "Inter", sans-serif;
 }
 
+/* Modern drop shadow style for images */
+img {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  transition: filter var(--transition-medium),
+    transform var(--transition-medium);
+}
+
+img:hover {
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Advanced card styling */
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: var(--blur-light);
+  border-radius: 16px;
+  border: var(--border-light);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-medium),
+    box-shadow var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-highlight);
+  transition: transform 0.8s ease;
+  transform: skewX(-15deg);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg), var(--shadow-highlight);
+}
+
+.card:hover::before {
+  transform: translateX(200%) skewX(-15deg);
+}
+
+/* Modern button styling */
+.button {
+  background: linear-gradient(
+    135deg,
+    var(--color-theme-1),
+    var(--color-theme-2)
+  );
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1)
+  );
+  transition: transform 0.5s ease;
+  transform: skewX(-15deg);
+  z-index: -1;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.button:hover::before {
+  transform: translateX(200%) skewX(-15deg);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Enhanced text styling */
 h1,
 h2,
-p {
-  font-weight: 400;
-}
-
-p {
-  line-height: 1.5;
-}
-
-a {
-  color: var(--color-theme-1);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  background: linear-gradient(
+    90deg,
+    var(--color-theme-2),
+    var(--color-theme-1) 70%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: center;
+  margin-top: 2rem;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.5rem;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-theme-1),
+    var(--color-theme-2)
+  );
+  transform: translateX(-50%);
+  border-radius: 2px;
 }
 
 h2 {
-  font-size: 1rem;
+  font-size: 1.8rem;
 }
 
-pre {
-  font-size: 16px;
-  font-family: var(--font-mono);
-  background-color: rgba(0, 0, 0, 0.05); /* Light background for code */
-  border-radius: 3px;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); /* Lighter shadow */
-  padding: 0.5em;
-  overflow-x: auto;
-  color: var(--color-text); /* Will use the new dark text color */
+/* Advanced link styling */
+a {
+  color: var(--color-theme-1);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition-fast);
+  font-weight: 500;
 }
 
-.text-column {
-  display: flex;
-  max-width: 48rem;
-  flex: 0.6;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
+a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-theme-1),
+    var(--color-theme-2)
+  );
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-medium);
 }
 
-input,
-button {
-  font-size: inherit;
-  font-family: inherit;
+a:hover {
+  color: var(--color-theme-2);
 }
 
-button:focus:not(:focus-visible) {
-  outline: none;
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-@media (min-width: 720px) {
-  h1 {
-    font-size: 2.4rem;
+/* Glass morphism containers */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: var(--blur-light);
+  border: var(--border-light);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: var(--blur-light);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+
+/* Premium highlight effect */
+.premium-highlight {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.premium-highlight::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  animation: shine 10s infinite linear;
+  z-index: -1;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
   }
 }
 
-.visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: auto;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
+/* 3D card effect */
+.card-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.card-3d-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-3d:hover .card-3d-inner {
+  transform: rotateY(10deg) rotateX(5deg);
+  box-shadow: -20px 20px 30px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Cool background animation */
+.animated-bg {
   position: absolute;
-  width: 1px;
-  white-space: nowrap;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.animated-bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
+  animation: float-around 20s infinite ease-in-out;
+}
+
+@keyframes float-around {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(5%, -10%) scale(1.1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(10%, 5%) scale(0.9);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate(-5%, 10%) scale(1.05);
+    opacity: 0.5;
+  }
+}
+
+/* Soft highlight */
+.soft-highlight {
+  position: relative;
+}
+
+.soft-highlight::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-medium);
+  z-index: -1;
+}
+
+.soft-highlight:hover::after {
+  opacity: 0.5;
+}
+
+/* Advanced typography utilities */
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-theme-2),
+    var(--color-theme-1)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-shadow-sm {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Input field styling */
+input,
+textarea,
+select {
+  background: rgba(255, 255, 255, 0.9);
+  border: var(--border-light);
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: all var(--transition-fast);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-theme-1);
+  box-shadow: 0 0 0 3px rgba(90, 90, 90, 0.2),
+    inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }

@@ -3,6 +3,20 @@ export default {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: [
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
+      },
       colors: {
         gray: {
           50: "#f9f9f9",
